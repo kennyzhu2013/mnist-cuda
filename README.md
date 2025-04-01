@@ -1,2 +1,0 @@
-# mnist-cuda
-mnist-cuda

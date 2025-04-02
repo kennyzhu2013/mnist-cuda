@@ -402,8 +402,8 @@ prev_size: 前一层的节点数量。
 curr_size: 当前层的节点数量。
 */
 __global__ void update_gradients_kernel(float* grad_weights, float* grad_bias, float* grad_layer, float* prev_layer, int batch_size, int prev_size, int curr_size) {
-    int i = blockIdx.y;
-    int j = blockIdx.x * blockDim.x + threadIdx.x;
+    int i = blockIdx.y;  // 节点行
+    int j = blockIdx.x * blockDim.x + threadIdx.x;  // 节点列
 
     if (i < curr_size && j < prev_size) {
         float grad_w_sum = 0.0f;

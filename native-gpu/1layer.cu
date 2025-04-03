@@ -10,33 +10,33 @@
 
 
 /*
-youtube£ºhttps://www.youtube.com/watch?v=xBEh66V9gZo&t=3s
-ÕûÌå½á¹¹¸ÅÊö
-´úÂëÊµÏÖÁËÒ»¸ö¾ßÓĞÁ½²ã£¨ÊäÈë²ã ¡ú Òş²Ø²ã ¡ú Êä³ö²ã£©µÄÈ«Á¬½ÓÉñ¾­ÍøÂç£¬¾ß±¸Ç°Ïò´«²¥£¨forward propagation£©¡¢ºóÏò´«²¥£¨backpropagation£©¡¢È¨ÖØ¸üĞÂÒÔ¼°ĞÔÄÜÆÀ¹ÀµÄ¹¦ÄÜ¡£»ùÓÚ cuda_runtime ¼¼Êõ½øĞĞ¼ÓËÙ£¬Ö§³Ö´ó¹æÄ£Êı¾İ´¦Àí¡£
-ÍøÂç½á¹¹Óë²ÎÊı:
-ÊäÈë²ã£º784¸ö½Úµã£¨¶ÔÓ¦28x28µÄMNISTÍ¼Ïñ£©¡£
-Òş²Ø²ã£º4096¸ö½Úµã£¬Ê¹ÓÃReLU¼¤»îº¯Êı¡£
-Êä³ö²ã£º10¸ö½Úµã£¨¶ÔÓ¦0-9µÄ10¸öÀà±ğ£©£¬Ê¹ÓÃSoftmaxÊä³ö¸ÅÂÊ¡£
+youtubeï¼šhttps://www.youtube.com/watch?v=xBEh66V9gZo&t=3s
+æ•´ä½“ç»“æ„æ¦‚è¿°
+ä»£ç å®ç°äº†ä¸€ä¸ªå…·æœ‰ä¸¤å±‚ï¼ˆè¾“å…¥å±‚ â†’ éšè—å±‚ â†’ è¾“å‡ºå±‚ï¼‰çš„å…¨è¿æ¥ç¥ç»ç½‘ç»œï¼Œå…·å¤‡å‰å‘ä¼ æ’­ï¼ˆforward propagationï¼‰ã€åå‘ä¼ æ’­ï¼ˆbackpropagationï¼‰ã€æƒé‡æ›´æ–°ä»¥åŠæ€§èƒ½è¯„ä¼°çš„åŠŸèƒ½ã€‚åŸºäº cuda_runtime æŠ€æœ¯è¿›è¡ŒåŠ é€Ÿï¼Œæ”¯æŒå¤§è§„æ¨¡æ•°æ®å¤„ç†ã€‚
+ç½‘ç»œç»“æ„ä¸å‚æ•°:
+è¾“å…¥å±‚ï¼š784ä¸ªèŠ‚ç‚¹ï¼ˆå¯¹åº”28x28çš„MNISTå›¾åƒï¼‰ã€‚
+éšè—å±‚ï¼š4096ä¸ªèŠ‚ç‚¹ï¼Œä½¿ç”¨ReLUæ¿€æ´»å‡½æ•°ã€‚
+è¾“å‡ºå±‚ï¼š10ä¸ªèŠ‚ç‚¹ï¼ˆå¯¹åº”0-9çš„10ä¸ªç±»åˆ«ï¼‰ï¼Œä½¿ç”¨Softmaxè¾“å‡ºæ¦‚ç‡ã€‚
 
-ºËĞÄ²½Öè°üÀ¨£º
-Êı¾İ¼ÓÔØÓëÔ¤´¦Àí£º´ÓÎÄ¼şÖĞ¶ÁÈ¡ÑµÁ·ºÍ²âÊÔÊı¾İ£¬²¢Ö´ĞĞ³õÊ¼»¯²Ù×÷¡£
-Ç°Ïò´«²¥£ºÍ¨¹ıÊäÈë²ã¡¢Òş²Ø²ãºÍÊä³ö²ã¼ÆËãÔ¤²âÖµ¡£
-·´Ïò´«²¥£º¼ÆËãÌİ¶È£¬²¢¸ù¾İËğÊ§º¯ÊıÓÅ»¯Ä£ĞÍ²ÎÊı¡£
-È¨ÖØ¸üĞÂ£ºÊ¹ÓÃÌİ¶ÈÏÂ½µ·¨¸üĞÂÍøÂçÈ¨ÖØºÍÆ«ÖÃ¡£
-ĞÔÄÜÆÀ¹À£º»ùÓÚ²âÊÔ¼¯ÆÀ¹ÀÄ£ĞÍĞÔÄÜ£¨×¼È·ÂÊ£©¡£
+æ ¸å¿ƒæ­¥éª¤åŒ…æ‹¬ï¼š
+æ•°æ®åŠ è½½ä¸é¢„å¤„ç†ï¼šä»æ–‡ä»¶ä¸­è¯»å–è®­ç»ƒå’Œæµ‹è¯•æ•°æ®ï¼Œå¹¶æ‰§è¡Œåˆå§‹åŒ–æ“ä½œã€‚
+å‰å‘ä¼ æ’­ï¼šé€šè¿‡è¾“å…¥å±‚ã€éšè—å±‚å’Œè¾“å‡ºå±‚è®¡ç®—é¢„æµ‹å€¼ã€‚
+åå‘ä¼ æ’­ï¼šè®¡ç®—æ¢¯åº¦ï¼Œå¹¶æ ¹æ®æŸå¤±å‡½æ•°ä¼˜åŒ–æ¨¡å‹å‚æ•°ã€‚
+æƒé‡æ›´æ–°ï¼šä½¿ç”¨æ¢¯åº¦ä¸‹é™æ³•æ›´æ–°ç½‘ç»œæƒé‡å’Œåç½®ã€‚
+æ€§èƒ½è¯„ä¼°ï¼šåŸºäºæµ‹è¯•é›†è¯„ä¼°æ¨¡å‹æ€§èƒ½ï¼ˆå‡†ç¡®ç‡ï¼‰ã€‚
 */
 
 
 /*
-ÑµÁ·²ÎÊı£º
-ÅúÁ¿´óĞ¡£¨BATCH_SIZE£©£º32¡£
-ÑµÁ·ÂÖÊı£¨EPOCHS£©£º20¡£
-Ñ§Ï°ÂÊ£¨LEARNING_RATE£©£º0.05¡£
-ÑµÁ·¼¯´óĞ¡£¨TRAIN_SIZE£©£º10,000£¬ÑµÁ·¼¯ÖĞµÄÑù±¾ÊıÁ¿¡£
-²âÊÔ¼¯´óĞ¡£¨TEST_SIZE£©£º1,000¡£
-ÊäÈëÎ¬¶È´óĞ¡£¨INPUT_SIZE£©£ºMNIST Êı¾İ¼¯µÄÍ¼Ïñ³ß´çÎª 28x28 ÏñËØ£¬Õ¹Æ½ºóÃ¿ÕÅÍ¼ÏñµÄ´óĞ¡Îª784
-HIDDEN_SIZE£º¼´Éñ¾­ÍøÂçÒş²Ø²ãÖĞµÄÉñ¾­Ôª£¨»ò½Úµã£©ÊıÁ¿4096
-OUTPUT_SIZE£º Êä³ö²ã´óĞ¡£¬¼´ÍøÂç×îÖÕÊä³öµÄÎ¬¶È10£¨0-9Êı×Ö£©
+è®­ç»ƒå‚æ•°ï¼š
+æ‰¹é‡å¤§å°ï¼ˆBATCH_SIZEï¼‰ï¼š32ã€‚
+è®­ç»ƒè½®æ•°ï¼ˆEPOCHSï¼‰ï¼š20ã€‚
+å­¦ä¹ ç‡ï¼ˆLEARNING_RATEï¼‰ï¼š0.05ã€‚
+è®­ç»ƒé›†å¤§å°ï¼ˆTRAIN_SIZEï¼‰ï¼š10,000ï¼Œè®­ç»ƒé›†ä¸­çš„æ ·æœ¬æ•°é‡ã€‚
+æµ‹è¯•é›†å¤§å°ï¼ˆTEST_SIZEï¼‰ï¼š1,000ã€‚
+è¾“å…¥ç»´åº¦å¤§å°ï¼ˆINPUT_SIZEï¼‰ï¼šMNIST æ•°æ®é›†çš„å›¾åƒå°ºå¯¸ä¸º 28x28 åƒç´ ï¼Œå±•å¹³åæ¯å¼ å›¾åƒçš„å¤§å°ä¸º784
+HIDDEN_SIZEï¼šå³ç¥ç»ç½‘ç»œéšè—å±‚ä¸­çš„ç¥ç»å…ƒï¼ˆæˆ–èŠ‚ç‚¹ï¼‰æ•°é‡4096
+OUTPUT_SIZEï¼š è¾“å‡ºå±‚å¤§å°ï¼Œå³ç½‘ç»œæœ€ç»ˆè¾“å‡ºçš„ç»´åº¦10ï¼ˆ0-9æ•°å­—ï¼‰
 */
 #define INPUT_SIZE 784
 #define HIDDEN_SIZE 4096
@@ -47,8 +47,8 @@ OUTPUT_SIZE£º Êä³ö²ã´óĞ¡£¬¼´ÍøÂç×îÖÕÊä³öµÄÎ¬¶È10£¨0-9Êı×Ö£©
 #define EPOCHS 20
 #define LEARNING_RATE 0.05
 
-// weightsºÍbias´æ´¢È¨ÖØºÍÆ«ÖÃµÄÏÔ´æÖ¸Õë
-// grad_weightsºÍgrad_bias´æ´¢Ìİ¶ÈÖµµÄÏÔ´æÖ¸Õë
+// weightså’Œbiaså­˜å‚¨æƒé‡å’Œåç½®çš„æ˜¾å­˜æŒ‡é’ˆ
+// grad_weightså’Œgrad_biaså­˜å‚¨æ¢¯åº¦å€¼çš„æ˜¾å­˜æŒ‡é’ˆ
 typedef struct {
     float* weights1;
     float* weights2;
@@ -74,8 +74,8 @@ typedef struct {
     } while(0)
 
 
-// load batched img data£º´Ó¶ş½øÖÆÎÄ¼şÖĞ¼ÓÔØÍ¼Ïñ
-// Ã¿´Î¶ÁÈ¡Ö¸¶¨ÊıÁ¿£¨size£©µÄÔªËØ£¬²¢½«Æä´æ´¢µ½ÄÚ´ædataÖĞ
+// load batched img dataï¼šä»äºŒè¿›åˆ¶æ–‡ä»¶ä¸­åŠ è½½å›¾åƒ
+// æ¯æ¬¡è¯»å–æŒ‡å®šæ•°é‡ï¼ˆsizeï¼‰çš„å…ƒç´ ï¼Œå¹¶å°†å…¶å­˜å‚¨åˆ°å†…å­˜dataä¸­
 void load_data(const char* filename, float* data, int size) {
     FILE* file = fopen(filename, "rb");
     if (file == NULL) {
@@ -84,14 +84,14 @@ void load_data(const char* filename, float* data, int size) {
     }
     size_t read_size = fread(data, sizeof(float), size, file);
     if (read_size != size) {
-        // Èç¹ûÊı¾İ¼ÓÔØÊ§°Ü£¨ÀıÈçÎÄ¼ş¶ªÊ§»ò¶ÁÈ¡ÔªËØÊıÁ¿²»Æ¥Åä£©£¬»á´¥·¢´íÎóÏûÏ¢²¢ÍË³ö
+        // å¦‚æœæ•°æ®åŠ è½½å¤±è´¥ï¼ˆä¾‹å¦‚æ–‡ä»¶ä¸¢å¤±æˆ–è¯»å–å…ƒç´ æ•°é‡ä¸åŒ¹é…ï¼‰ï¼Œä¼šè§¦å‘é”™è¯¯æ¶ˆæ¯å¹¶é€€å‡º
         fprintf(stderr, "Error reading data: expected %d elements, got %zu\n", size, read_size);
         exit(1);
     }
     fclose(file);
 }
 
-// load batch labels:¼ÓÔØ¶ÔÓ¦µÄ±êÇ©´æµ½¶ÔÓ¦ÄÚ´ælabelsÖĞ
+// load batch labels:åŠ è½½å¯¹åº”çš„æ ‡ç­¾å­˜åˆ°å¯¹åº”å†…å­˜labelsä¸­
 void load_labels(const char* filename, int* labels, int size) {
     FILE* file = fopen(filename, "rb");
     if (file == NULL) {
@@ -106,13 +106,13 @@ void load_labels(const char* filename, int* labels, int size) {
     fclose(file);
 }
 
-// ³õÊ¼»¯´¦Àí
+// åˆå§‹åŒ–å¤„ç†
 #if 1
 // kaiming init func for weights
-// È¨ÖØ³õÊ¼»¯:Ê¹ÓÃ Kaiming ³õÊ¼»¯£¨He ³õÊ¼»¯£© ·½·¨£¬È¨ÖØÖµ¸ù¾İ²ã´óĞ¡½øĞĞ¹éÒ»»¯£¬±ÜÃâÌİ¶ÈÏûÊ§»ò±¬Õ¨,ÌØ±ğÊÊÓÃÓÚÊ¹ÓÃ ReLU£¨Rectified Linear Unit£©¼¤»îº¯ÊıµÄÍøÂç
-// Kaiming ³õÊ¼»¯µÄÄ¿±êÊÇ±£³ÖÃ¿Ò»²ãµÄÊä³ö·½²îÓëÊäÈë·½²îÏàÍ¬
-// scale = sqrt(2.0 / size)£¬´Ó¾ùÔÈ·Ö²¼ÖĞËæ»úÉú³ÉÈ¨ÖØ
-// Kaiming ³õÊ¼»¯Í¨³£Ê¹ÓÃÒÔÏÂ¹«Ê½£º w~N(0, 2/Nin),NinÎª¸Ã²ãÊäÈë½ÚµãÊı
+// æƒé‡åˆå§‹åŒ–:ä½¿ç”¨ Kaiming åˆå§‹åŒ–ï¼ˆHe åˆå§‹åŒ–ï¼‰ æ–¹æ³•ï¼Œæƒé‡å€¼æ ¹æ®å±‚å¤§å°è¿›è¡Œå½’ä¸€åŒ–ï¼Œé¿å…æ¢¯åº¦æ¶ˆå¤±æˆ–çˆ†ç‚¸,ç‰¹åˆ«é€‚ç”¨äºä½¿ç”¨ ReLUï¼ˆRectified Linear Unitï¼‰æ¿€æ´»å‡½æ•°çš„ç½‘ç»œ
+// Kaiming åˆå§‹åŒ–çš„ç›®æ ‡æ˜¯ä¿æŒæ¯ä¸€å±‚çš„è¾“å‡ºæ–¹å·®ä¸è¾“å…¥æ–¹å·®ç›¸åŒ
+// scale = sqrt(2.0 / size)ï¼Œä»å‡åŒ€åˆ†å¸ƒä¸­éšæœºç”Ÿæˆæƒé‡
+// Kaiming åˆå§‹åŒ–é€šå¸¸ä½¿ç”¨ä»¥ä¸‹å…¬å¼ï¼š w~N(0, 2/Nin),Ninä¸ºè¯¥å±‚è¾“å…¥èŠ‚ç‚¹æ•°
 void initialize_weights(float* weights, int size) {
     float scale = sqrtf(2.0f / size);
     for (int i = 0; i < size; i++) {
@@ -121,7 +121,7 @@ void initialize_weights(float* weights, int size) {
 }
 
 // basic init for biases
-// Æ«ÖÃ³õÊ¼ÖµÎªÁã£¨bias[i] = 0.0f£©£¬ÒÔÈ·±£³õÊ¼×´Ì¬µÄ¶Ô³ÆĞÔ
+// åç½®åˆå§‹å€¼ä¸ºé›¶ï¼ˆbias[i] = 0.0fï¼‰ï¼Œä»¥ç¡®ä¿åˆå§‹çŠ¶æ€çš„å¯¹ç§°æ€§
 void initialize_bias(float* bias, int size) {
     for (int i = 0; i < size; i++) {
         bias[i] = 0.0f;
@@ -130,47 +130,84 @@ void initialize_bias(float* bias, int size) {
 #endif
 
 
-// ºËĞÄCUDAºËº¯Êı
+// Modified initialize function to allocate memory for gradients
+// NeuralNetworkåˆå§‹åŒ–å‡½æ•°
+void initialize_neural_network(NeuralNetwork* nn) {
+    CUDA_CHECK(cudaMalloc(&nn->weights1, HIDDEN_SIZE * INPUT_SIZE * sizeof(float)));
+    CUDA_CHECK(cudaMalloc(&nn->weights2, OUTPUT_SIZE * HIDDEN_SIZE * sizeof(float)));
+    CUDA_CHECK(cudaMalloc(&nn->bias1, HIDDEN_SIZE * sizeof(float)));
+    CUDA_CHECK(cudaMalloc(&nn->bias2, OUTPUT_SIZE * sizeof(float)));
+    CUDA_CHECK(cudaMalloc(&nn->grad_weights1, HIDDEN_SIZE * INPUT_SIZE * sizeof(float)));
+    CUDA_CHECK(cudaMalloc(&nn->grad_weights2, OUTPUT_SIZE * HIDDEN_SIZE * sizeof(float)));
+    CUDA_CHECK(cudaMalloc(&nn->grad_bias1, HIDDEN_SIZE * sizeof(float)));
+    CUDA_CHECK(cudaMalloc(&nn->grad_bias2, OUTPUT_SIZE * sizeof(float)));
+
+    // Allocate temporary host memory
+    float* h_weights1 = (float*)malloc(HIDDEN_SIZE * INPUT_SIZE * sizeof(float));
+    float* h_weights2 = (float*)malloc(OUTPUT_SIZE * HIDDEN_SIZE * sizeof(float));
+    float* h_bias1 = (float*)malloc(HIDDEN_SIZE * sizeof(float));
+    float* h_bias2 = (float*)malloc(OUTPUT_SIZE * sizeof(float));
+
+    // Initialize weights and biases on the host
+    initialize_weights(h_weights1, HIDDEN_SIZE * INPUT_SIZE);
+    initialize_weights(h_weights2, OUTPUT_SIZE * HIDDEN_SIZE);
+    initialize_bias(h_bias1, HIDDEN_SIZE);
+    initialize_bias(h_bias2, OUTPUT_SIZE);
+
+    // Copy initialized values to device
+    CUDA_CHECK(cudaMemcpy(nn->weights1, h_weights1, HIDDEN_SIZE * INPUT_SIZE * sizeof(float), cudaMemcpyHostToDevice));
+    CUDA_CHECK(cudaMemcpy(nn->weights2, h_weights2, OUTPUT_SIZE * HIDDEN_SIZE * sizeof(float), cudaMemcpyHostToDevice));
+    CUDA_CHECK(cudaMemcpy(nn->bias1, h_bias1, HIDDEN_SIZE * sizeof(float), cudaMemcpyHostToDevice));
+    CUDA_CHECK(cudaMemcpy(nn->bias2, h_bias2, OUTPUT_SIZE * sizeof(float), cudaMemcpyHostToDevice));
+
+    // Free temporary host memory
+    free(h_weights1);
+    free(h_weights2);
+    free(h_bias1);
+    free(h_bias2);
+}
+
+// æ ¸å¿ƒCUDAæ ¸å‡½æ•°
 #ifndef core_kernel
 #define core_kernel
 /*
-ÊäÈë²ã ¡ú Òş²Ø²ã£º
-¾ØÕó³Ë·¨£ºmatmul_a_b_kernel£¨X @ W1£©
-float* A, float* B, float* C: ÕâĞ©ÊÇÖ¸Ïò¸¡µãÊıÊı×éµÄÖ¸Õë£¬·Ö±ğ±íÊ¾ÊäÈë¾ØÕó A¡¢B ºÍÊä³ö¾ØÕó C
-int m, int n, int k: ÕâĞ©ÊÇ¾ØÕóµÄÎ¬¶È£¬ÆäÖĞ£º
-m: ¾ØÕó A µÄĞĞÊı¡£
-n: ¾ØÕó A µÄÁĞÊı£¨Ò²ÊÇ¾ØÕó B µÄĞĞÊı£©¡£
-k: ¾ØÕó B µÄÁĞÊı
-½á¹ûC[row * k + col] = sum;¶ÔÓ¦µÄÒ²ÊÇÊä³ö¾ØÕóÄ³¸ö¾ßÌåÎ»ÖÃrow * k + colÊıÖµ
+è¾“å…¥å±‚ â†’ éšè—å±‚ï¼š
+çŸ©é˜µä¹˜æ³•ï¼šmatmul_a_b_kernelï¼ˆX @ W1ï¼‰
+float* A, float* B, float* C: è¿™äº›æ˜¯æŒ‡å‘æµ®ç‚¹æ•°æ•°ç»„çš„æŒ‡é’ˆï¼Œåˆ†åˆ«è¡¨ç¤ºè¾“å…¥çŸ©é˜µ Aã€B å’Œè¾“å‡ºçŸ©é˜µ C
+int m, int n, int k: è¿™äº›æ˜¯çŸ©é˜µçš„ç»´åº¦ï¼Œå…¶ä¸­ï¼š
+m: çŸ©é˜µ A çš„è¡Œæ•°ã€‚
+n: çŸ©é˜µ A çš„åˆ—æ•°ï¼ˆä¹Ÿæ˜¯çŸ©é˜µ B çš„è¡Œæ•°ï¼‰ã€‚
+k: çŸ©é˜µ B çš„åˆ—æ•°
+ç»“æœC[row * k + col] = sum;å¯¹åº”çš„ä¹Ÿæ˜¯è¾“å‡ºçŸ©é˜µæŸä¸ªå…·ä½“ä½ç½®row * k + colæ•°å€¼
 */
 __global__ void matmul_a_b_kernel(float* A, float* B, float* C, int m, int n, int k) {
-    // blockIdx: ±íÊ¾µ±Ç°Ïß³Ì¿éµÄË÷Òı¡£
-    // blockDim: ±íÊ¾Ã¿¸öÏß³Ì¿éÖĞµÄÏß³ÌÊı¡£
-    // threadIdx : ±íÊ¾µ±Ç°Ïß³ÌÔÚÆäÏß³Ì¿éÖĞµÄË÷Òı
-    // row ºÍ col ·Ö±ğÈ·¶¨µ±Ç°Ïß³Ì¸ºÔğ¼ÆËãµÄÊä³ö¾ØÕó C ÖĞµÄĞĞºÍÁĞ
+    // blockIdx: è¡¨ç¤ºå½“å‰çº¿ç¨‹å—çš„ç´¢å¼•ã€‚
+    // blockDim: è¡¨ç¤ºæ¯ä¸ªçº¿ç¨‹å—ä¸­çš„çº¿ç¨‹æ•°ã€‚
+    // threadIdx : è¡¨ç¤ºå½“å‰çº¿ç¨‹åœ¨å…¶çº¿ç¨‹å—ä¸­çš„ç´¢å¼•
+    // row å’Œ col åˆ†åˆ«ç¡®å®šå½“å‰çº¿ç¨‹è´Ÿè´£è®¡ç®—çš„è¾“å‡ºçŸ©é˜µ C ä¸­çš„è¡Œå’Œåˆ—
     int row = blockIdx.y * blockDim.y + threadIdx.y;
     int col = blockIdx.x * blockDim.x + threadIdx.x;
 
-    // ÕâĞĞ´úÂëÈ·±£µ±Ç°Ïß³ÌµÄĞĞºÍÁĞË÷ÒıÔÚ¾ØÕó C µÄÓĞĞ§·¶Î§ÄÚ£¬±ÜÃâ·ÃÎÊÔ½½ç
+    // è¿™è¡Œä»£ç ç¡®ä¿å½“å‰çº¿ç¨‹çš„è¡Œå’Œåˆ—ç´¢å¼•åœ¨çŸ©é˜µ C çš„æœ‰æ•ˆèŒƒå›´å†…ï¼Œé¿å…è®¿é—®è¶Šç•Œ
     if (row < m && col < k) {
         float sum = 0.0f;
-        for (int i = 0; i < n; ++i) { // Ñ­»·±éÀú A µÄÁĞºÍ B µÄĞĞ
-            sum += A[row * n + i] * B[i * k + col];  // ¼ÆËã¾ØÕó A ÖĞµÚ row ĞĞ£¬µÚ i ÁĞµÄÔªËØ * ¼ÆËã¾ØÕó B ÖĞµÚ i ĞĞ£¬µÚ col ÁĞµÄÔªËØ
+        for (int i = 0; i < n; ++i) { // å¾ªç¯éå† A çš„åˆ—å’Œ B çš„è¡Œ
+            sum += A[row * n + i] * B[i * k + col];  // è®¡ç®—çŸ©é˜µ A ä¸­ç¬¬ row è¡Œï¼Œç¬¬ i åˆ—çš„å…ƒç´  * è®¡ç®—çŸ©é˜µ B ä¸­ç¬¬ i è¡Œï¼Œç¬¬ col åˆ—çš„å…ƒç´ 
         }
 
-        // ½«¼ÆËãµÃµ½µÄ½á¹û´æ´¢µ½Êä³ö¾ØÕó C µÄ¶ÔÓ¦Î»ÖÃ
+        // å°†è®¡ç®—å¾—åˆ°çš„ç»“æœå­˜å‚¨åˆ°è¾“å‡ºçŸ©é˜µ C çš„å¯¹åº”ä½ç½®
         C[row * k + col] = sum;
     }
 }
 
 /*
-¼ÆËãÒş²Ø²ãµÄÌİ¶È£º
-¾ØÕó×ªÖÃ³Ë·¨£ºCUDA kernel for matrix multiplication (A @ B.T)£¨grad_output @ W2.T£©
-float* A, float* B, float* C: ÕâĞ©ÊÇÖ¸Ïò¸¡µãÊıÊı×éµÄÖ¸Õë£¬·Ö±ğ±íÊ¾ÊäÈë¾ØÕó A¡¢B ºÍÊä³ö¾ØÕó C
-int m, int n, int k: ÕâĞ©ÊÇ¾ØÕóµÄÎ¬¶È£¬ÆäÖĞ£º
-m: ¾ØÕó A µÄĞĞÊı¡£
-n: ¾ØÕó A µÄÁĞÊı£¨Ò²ÊÇ¾ØÕó B µÄÁĞÊı£©¡£
-k: ¾ØÕó B µÄĞĞÊı
+è®¡ç®—éšè—å±‚çš„æ¢¯åº¦ï¼š
+çŸ©é˜µè½¬ç½®ä¹˜æ³•ï¼šCUDA kernel for matrix multiplication (A @ B.T)ï¼ˆgrad_output @ W2.Tï¼‰
+float* A, float* B, float* C: è¿™äº›æ˜¯æŒ‡å‘æµ®ç‚¹æ•°æ•°ç»„çš„æŒ‡é’ˆï¼Œåˆ†åˆ«è¡¨ç¤ºè¾“å…¥çŸ©é˜µ Aã€B å’Œè¾“å‡ºçŸ©é˜µ C
+int m, int n, int k: è¿™äº›æ˜¯çŸ©é˜µçš„ç»´åº¦ï¼Œå…¶ä¸­ï¼š
+m: çŸ©é˜µ A çš„è¡Œæ•°ã€‚
+n: çŸ©é˜µ A çš„åˆ—æ•°ï¼ˆä¹Ÿæ˜¯çŸ©é˜µ B çš„åˆ—æ•°ï¼‰ã€‚
+k: çŸ©é˜µ B çš„è¡Œæ•°
 */
 __global__ void matmul_a_bt_kernel(float* A, float* B, float* C, int m, int n, int k) {
     int row = blockIdx.y * blockDim.y + threadIdx.y;
@@ -185,8 +222,8 @@ __global__ void matmul_a_bt_kernel(float* A, float* B, float* C, int m, int n, i
     }
 }
 
-// ¾ØÕó×ªÖÃ³Ë·¨£ºCUDA kernel for matrix multiplication (A.T @ B)
-// ¸üĞÂÈ¨ÖØÌİ¶È£¨Èç hidden.T @ grad_output ¸üĞÂ W2£©
+// çŸ©é˜µè½¬ç½®ä¹˜æ³•ï¼šCUDA kernel for matrix multiplication (A.T @ B)
+// æ›´æ–°æƒé‡æ¢¯åº¦ï¼ˆå¦‚ hidden.T @ grad_output æ›´æ–° W2ï¼‰:ä¸¤ä¸ªçŸ©é˜µçš„ä¹˜ç§¯
 __global__ void matmul_at_b_kernel(float* A, float* B, float* C, int m, int n, int k) {
     int row = blockIdx.y * blockDim.y + threadIdx.y;
     int col = blockIdx.x * blockDim.x + threadIdx.x;
@@ -201,58 +238,58 @@ __global__ void matmul_at_b_kernel(float* A, float* B, float* C, int m, int n, i
 }
 
 
-// ¼¤»îº¯Êı£º½«¼¤»îºóµÄÒş²Ø²ãÊä³öµÄÌİ¶ÈÖÃÎª0»ò1£¬È»ºóÓëºóĞøÌİ¶ÈÏà³Ë
+// æ¿€æ´»å‡½æ•°ï¼šå°†æ¿€æ´»åçš„éšè—å±‚è¾“å‡ºçš„æ¢¯åº¦ç½®ä¸º0æˆ–1ï¼Œç„¶åä¸åç»­æ¢¯åº¦ç›¸ä¹˜
 // CUDA kernel for ReLU activation
 __global__ void relu_kernel(float* x, int size) {
     int idx = blockIdx.x * blockDim.x + threadIdx.x;
     if (idx < size) {
-        x[idx] = fmaxf(0.0f, x[idx]); // ·µ»Ø>=0
+        x[idx] = fmaxf(0.0f, x[idx]); // è¿”å›>=0
     }
 }
 
 
-// Ìí¼ÓÆ«ÖÃ: 
+// æ·»åŠ åç½®: 
 // CUDA kernel for bias addition
-// int size: ±íÊ¾Ã¿¸öÑù±¾µÄ´óĞ¡£¨ÌØÕ÷ÊıÁ¿£©
+// int size: è¡¨ç¤ºæ¯ä¸ªæ ·æœ¬çš„å¤§å°ï¼ˆç‰¹å¾æ•°é‡ï¼‰
 __global__ void bias_add_kernel(float* x, float* bias, int batch_size, int size) {
-    int idx = blockIdx.x * blockDim.x + threadIdx.x;  // idx È·¶¨ÁËµ±Ç°Ïß³ÌÔÚÕû¸öÊı¾İÖĞµÄÎ¨Ò»Ë÷Òı, ´Ó0¿ªÊ¼
-    int b = idx / size;  // ¼ÆËãµ±Ç°Ïß³Ì¶ÔÓ¦µÄÅú´ÎË÷Òı
-    int i = idx % size;  // ¼ÆËãµ±Ç°Ïß³Ì¶ÔÓ¦µÄÌØÕ÷Ë÷Òı
+    int idx = blockIdx.x * blockDim.x + threadIdx.x;  // idx ç¡®å®šäº†å½“å‰çº¿ç¨‹åœ¨æ•´ä¸ªæ•°æ®ä¸­çš„å”¯ä¸€ç´¢å¼•, ä»0å¼€å§‹
+    int b = idx / size;  // è®¡ç®—å½“å‰çº¿ç¨‹å¯¹åº”çš„æ‰¹æ¬¡ç´¢å¼•
+    int i = idx % size;  // è®¡ç®—å½“å‰çº¿ç¨‹å¯¹åº”çš„ç‰¹å¾ç´¢å¼•
 
     if (b < batch_size && i < size) {
-        // ½«Æ«ÖÃÏòÁ¿ bias ÖĞµÚ i ¸öÔªËØ¼Óµ½ÊäÈëÊı¾İ x ÖĞ¶ÔÓ¦µÄÔªËØ¡£ÕâÀïµÄ x[idx] ÊÇÊäÈëÊı¾İÖĞµÚ idx ¸öÔªËØ
+        // å°†åç½®å‘é‡ bias ä¸­ç¬¬ i ä¸ªå…ƒç´ åŠ åˆ°è¾“å…¥æ•°æ® x ä¸­å¯¹åº”çš„å…ƒç´ ã€‚è¿™é‡Œçš„ x[idx] æ˜¯è¾“å…¥æ•°æ®ä¸­ç¬¬ idx ä¸ªå…ƒç´ 
         x[idx] += bias[i];  
     }
 }
 
-// Êä³ö²ã£ºÓ¦ÓÃSoftmax£ºsoftmax_kernel£¨Êä³ö¸ÅÂÊ£©
+// è¾“å‡ºå±‚ï¼šåº”ç”¨Softmaxï¼šsoftmax_kernelï¼ˆè¾“å‡ºæ¦‚ç‡ï¼‰
 // CUDA kernel for softmax
-// float* x: Ö¸ÏòÊäÈëÊı¾İµÄÖ¸Õë£¬Í¨³£ÊÇÒ»¸ö¶şÎ¬Êı×é£¨ÒÔÒ»Î¬Êı×éµÄĞÎÊ½´æ´¢£©
-// int size: ±íÊ¾Ã¿¸öÑù±¾µÄ´óĞ¡£¨ÌØÕ÷ÊıÁ¿£©£¬Ò»°ãÀ´ËµµÈÓÚOUTPUT_SIZE£¬¼´Êı×Ö0-9Àà±ğµÄlogitsÊä³ö
+// float* x: æŒ‡å‘è¾“å…¥æ•°æ®çš„æŒ‡é’ˆï¼Œé€šå¸¸æ˜¯ä¸€ä¸ªäºŒç»´æ•°ç»„ï¼ˆä»¥ä¸€ç»´æ•°ç»„çš„å½¢å¼å­˜å‚¨ï¼‰
+// int size: è¡¨ç¤ºæ¯ä¸ªæ ·æœ¬çš„å¤§å°ï¼ˆç‰¹å¾æ•°é‡ï¼‰ï¼Œä¸€èˆ¬æ¥è¯´ç­‰äºOUTPUT_SIZEï¼Œå³æ•°å­—0-9ç±»åˆ«çš„logitsè¾“å‡º
 __global__ void softmax_kernel(float* x, int batch_size, int size) {
-    int b = blockIdx.x;  // µ±Ç°Ïß³Ì¿éµÄË÷Òı£¬ÕâÀïÖ±½ÓÓÃ×÷Åú´ÎË÷Òı b, ÒòÎªÏß³Ì¿éÖ»ÓĞÒ»¸öÏß³Ì£¨¶ÔÓ¦Ò»¸öÅú´Î£©
-    if (b < batch_size) {  // È·±£µ±Ç°Ïß³ÌµÄÅú´ÎË÷Òı b ÔÚÓĞĞ§·¶Î§ÄÚ
-        // ³õÊ¼»¯ max_val Îªµ±Ç°Åú´ÎµÄµÚÒ»¸öÔªËØ
+    int b = blockIdx.x;  // å½“å‰çº¿ç¨‹å—çš„ç´¢å¼•ï¼Œè¿™é‡Œç›´æ¥ç”¨ä½œæ‰¹æ¬¡ç´¢å¼• b, å› ä¸ºçº¿ç¨‹å—åªæœ‰ä¸€ä¸ªçº¿ç¨‹ï¼ˆå¯¹åº”ä¸€ä¸ªæ‰¹æ¬¡ï¼‰
+    if (b < batch_size) {  // ç¡®ä¿å½“å‰çº¿ç¨‹çš„æ‰¹æ¬¡ç´¢å¼• b åœ¨æœ‰æ•ˆèŒƒå›´å†…
+        // åˆå§‹åŒ– max_val ä¸ºå½“å‰æ‰¹æ¬¡çš„ç¬¬ä¸€ä¸ªå…ƒç´ 
         float max_val = x[b * size];
-        for (int i = 1; i < size; ++i) {  // ±éÀúµ±Ç°Åú´ÎµÄËùÓĞÔªËØ£¬ÕÒµ½×î´óÖµ max_val¡£Ê¹ÓÃ fmaxf º¯ÊıÀ´±È½Ï²¢¸üĞÂ×î´óÖµ
+        for (int i = 1; i < size; ++i) {  // éå†å½“å‰æ‰¹æ¬¡çš„æ‰€æœ‰å…ƒç´ ï¼Œæ‰¾åˆ°æœ€å¤§å€¼ max_valã€‚ä½¿ç”¨ fmaxf å‡½æ•°æ¥æ¯”è¾ƒå¹¶æ›´æ–°æœ€å¤§å€¼
             max_val = fmaxf(max_val, x[b * size + i]);
         }
 
         float sum = 0.0f;
         for (int i = 0; i < size; ++i) {
-            x[b * size + i] = expf(x[b * size + i] - max_val); // ±éÀúµ±Ç°Åú´ÎµÄËùÓĞÔªËØ£¬¼ÆËãÃ¿¸öÔªËØ¼õÈ¥×î´óÖµºóµÄÖ¸Êı£¬²¢¸üĞÂµ½ x ÖĞ
-            sum += x[b * size + i];  // Í¬Ê±¼ÆËãËùÓĞÖ¸ÊıµÄºÍ sum
+            x[b * size + i] = expf(x[b * size + i] - max_val); // éå†å½“å‰æ‰¹æ¬¡çš„æ‰€æœ‰å…ƒç´ ï¼Œè®¡ç®—æ¯ä¸ªå…ƒç´ å‡å»æœ€å¤§å€¼åçš„æŒ‡æ•°ï¼Œå¹¶æ›´æ–°åˆ° x ä¸­
+            sum += x[b * size + i];  // åŒæ—¶è®¡ç®—æ‰€æœ‰æŒ‡æ•°çš„å’Œ sum
         }
 
-        // ¼ÆËã softmax Öµ,½«Ã¿¸öÔªËØ³ıÒÔ×ÜºÍ sum£¬µÃµ½ softmax Öµ
+        // è®¡ç®— softmax å€¼,å°†æ¯ä¸ªå…ƒç´ é™¤ä»¥æ€»å’Œ sumï¼Œå¾—åˆ° softmax å€¼
         for (int i = 0; i < size; ++i) {
-            x[b * size + i] = fmaxf(x[b * size + i] / sum, 1e-7f); // Ê¹ÓÃ fmaxf È·±£½á¹û²»Ğ¡ÓÚ 1e-7£¬±ÜÃâÊıÖµ²»ÎÈ¶¨£¨ÀıÈç£¬·ÀÖ¹³öÏÖ 0 µÄ¸ÅÂÊ£©
+            x[b * size + i] = fmaxf(x[b * size + i] / sum, 1e-7f); // ä½¿ç”¨ fmaxf ç¡®ä¿ç»“æœä¸å°äº 1e-7ï¼Œé¿å…æ•°å€¼ä¸ç¨³å®šï¼ˆä¾‹å¦‚ï¼Œé˜²æ­¢å‡ºç° 0 çš„æ¦‚ç‡ï¼‰
         }
     }
 }
 
-// Ìİ¶È²Ã¼ô£º´úÂëÖĞÒÑÊµÏÖclip_gradients_kernel£¬µ«Î´ÔÚ·´Ïò´«²¥ÖĞµ÷ÓÃ
-// Í¨¹ı½«Ìİ¶ÈÏŞÖÆÔÚÒ»¸öÖ¸¶¨µÄ·¶Î§ÄÚ£¨[-max_norm, max_norm]£©£¬¿ÉÒÔÌá¸ßÄ£ĞÍµÄÑµÁ·ÎÈ¶¨ĞÔ, ·ÀÖ¹Ìİ¶È±¬Õ¨
+// æ¢¯åº¦è£å‰ªï¼šä»£ç ä¸­å·²å®ç°clip_gradients_kernelï¼Œä½†æœªåœ¨åå‘ä¼ æ’­ä¸­è°ƒç”¨
+// é€šè¿‡å°†æ¢¯åº¦é™åˆ¶åœ¨ä¸€ä¸ªæŒ‡å®šçš„èŒƒå›´å†…ï¼ˆ[-max_norm, max_norm]ï¼‰ï¼Œå¯ä»¥æé«˜æ¨¡å‹çš„è®­ç»ƒç¨³å®šæ€§, é˜²æ­¢æ¢¯åº¦çˆ†ç‚¸
 __global__ void clip_gradients_kernel(float* gradients, int size, float max_norm) {
     int idx = blockIdx.x * blockDim.x + threadIdx.x;
     if (idx < size) {
@@ -273,88 +310,89 @@ __global__ void clip_gradients_kernel(float* gradients, int size, float max_norm
 #define core_kernel_forward
 /*
 Modified forward function using CUDA kernels:
-NeuralNetwork* nn: Ö¸ÏòÉñ¾­ÍøÂç½á¹¹µÄÖ¸Õë£¬°üº¬È¨ÖØºÍÆ«ÖÃ¡£
-float* d_input: Ö¸ÏòÊäÈëÊı¾İµÄÖ¸Õë£¬´æ´¢ÔÚ GPU ÉÏ¡£
-float* d_hidden: Ö¸ÏòÒş²Ø²ãÊä³öµÄÖ¸Õë£¬´æ´¢ÔÚ GPU ÉÏ¡£
-float* d_output: Ö¸Ïò×îÖÕÊä³öµÄÖ¸Õë£¬´æ´¢ÔÚ GPU ÉÏ¡£
-int batch_size: µ±Ç°Åú´ÎµÄ´óĞ¡¡£
+NeuralNetwork* nn: æŒ‡å‘ç¥ç»ç½‘ç»œç»“æ„çš„æŒ‡é’ˆï¼ŒåŒ…å«æƒé‡å’Œåç½®ã€‚
+float* d_input: æŒ‡å‘è¾“å…¥æ•°æ®çš„æŒ‡é’ˆï¼Œå­˜å‚¨åœ¨ GPU ä¸Šã€‚
+float* d_hidden: æŒ‡å‘éšè—å±‚è¾“å‡ºçš„æŒ‡é’ˆï¼Œå­˜å‚¨åœ¨ GPU ä¸Šã€‚
+float* d_output: æŒ‡å‘æœ€ç»ˆè¾“å‡ºçš„æŒ‡é’ˆï¼Œå­˜å‚¨åœ¨ GPU ä¸Šã€‚
+int batch_size: å½“å‰æ‰¹æ¬¡çš„å¤§å°ã€‚
 */
 void forward(NeuralNetwork* nn, float* d_input, float* d_hidden, float* d_output, int batch_size) {
-    // dim3 ÊÇ CUDA ÖĞÓÃÓÚ¶¨ÒåÈıÎ¬Íø¸ñºÍ¿éµÄÒ»¸öÊı¾İ½á¹¹¡£Ëü¿ÉÒÔ±íÊ¾Ò»¸öÈıÎ¬ÏòÁ¿£¬Í¨³£ÓÃÓÚÖ¸¶¨Íø¸ñ»ò¿éµÄ´óĞ¡,x¡¢y ºÍ z£¬·Ö±ğ´ú±íÈı¸öÎ¬¶ÈµÄ´óĞ¡
-    // block_size.zº¬Òå: Ïß³Ì¿éÔÚ z Î¬¶ÈÉÏµÄÏß³ÌÊıÁ¿¡£Í¨³£ÔÚ´ó¶àÊıÓ¦ÓÃÖĞ£¬z Î¬¶È²»±»Ê¹ÓÃ£¬Òò´ËÄ¬ÈÏÎª 1¡£
-    // 1024 threads/blocks: block_size(32, 32): Ã¿¸öÏß³Ì¿é°üº¬ 32x32 ¸öÏß³Ì£¬×Ü¹² 1024 ¸öÏß³Ì
+    // dim3 æ˜¯ CUDA ä¸­ç”¨äºå®šä¹‰ä¸‰ç»´ç½‘æ ¼å’Œå—çš„ä¸€ä¸ªæ•°æ®ç»“æ„ã€‚å®ƒå¯ä»¥è¡¨ç¤ºä¸€ä¸ªä¸‰ç»´å‘é‡ï¼Œé€šå¸¸ç”¨äºæŒ‡å®šç½‘æ ¼æˆ–å—çš„å¤§å°,xã€y å’Œ zï¼Œåˆ†åˆ«ä»£è¡¨ä¸‰ä¸ªç»´åº¦çš„å¤§å°
+    // block_size.zå«ä¹‰: çº¿ç¨‹å—åœ¨ z ç»´åº¦ä¸Šçš„çº¿ç¨‹æ•°é‡ã€‚é€šå¸¸åœ¨å¤§å¤šæ•°åº”ç”¨ä¸­ï¼Œz ç»´åº¦ä¸è¢«ä½¿ç”¨ï¼Œå› æ­¤é»˜è®¤ä¸º 1ã€‚
+    // 1024 threads/blocks: block_size(32, 32): æ¯ä¸ªçº¿ç¨‹å—åŒ…å« 32x32 ä¸ªçº¿ç¨‹ï¼Œæ€»å…± 1024 ä¸ªçº¿ç¨‹ï¼Œæ¯ä¸ªçº¿ç¨‹å¯¹åº”å›¾åƒä¸€ä¸ªåƒç´ 
     dim3 block_size(32, 32);
-    // just enough blocks + threads for our naive matmul kernel: ¼ÆËãËùĞèµÄÍø¸ñ´óĞ¡£¬ÒÔ±ãÎª¾ØÕó³Ë·¨·ÖÅä×ã¹»µÄ¿éºÍÏß³Ì
-    // grid_size.x ºÍ grid_size.y£¬·Ö±ğ¶ÔÓ¦ÓÚ¾ØÕó³Ë·¨ÖĞµÄĞĞºÍÁĞ
-    // HIDDEN_SIZE + block_size.x - 1: Õâ¸ö±í´ïÊ½È·±£¼´Ê¹ HIDDEN_SIZE ²»ÊÇ block_size.x µÄÕûÊı±¶£¬Ò²ÄÜ¼ÆËã³öËùĞèµÄ¿éÊı¡£Í¨¹ı¼ÓÉÏ block_size.x - 1£¬¿ÉÒÔ±ÜÃâÔÚÕûÊı³ı·¨ÖĞ¶ªÊ§ÓàÊı
-    // / block_size.x: ¼ÆËãËùĞèµÄ¿éÊıgrid_size.x
-    // batch_size + block_size.y ±íÊ¾Î¬¶ÈyĞèÒªµÄÏß³Ì¿é
-    // ËùĞèµÄ×ÜÌå¿éÊı=block_size.x * block_size.y
+    // just enough blocks + threads for our naive matmul kernel: è®¡ç®—æ‰€éœ€çš„ç½‘æ ¼å¤§å°ï¼Œä»¥ä¾¿ä¸ºçŸ©é˜µä¹˜æ³•åˆ†é…è¶³å¤Ÿçš„å—å’Œçº¿ç¨‹
+    // grid_size.x å’Œ grid_size.yï¼Œåˆ†åˆ«å¯¹åº”äºçŸ©é˜µä¹˜æ³•ä¸­çš„è¡Œå’Œåˆ—
+    // HIDDEN_SIZE + block_size.x - 1: è¿™ä¸ªè¡¨è¾¾å¼ç¡®ä¿å³ä½¿ HIDDEN_SIZE ä¸æ˜¯ block_size.x çš„æ•´æ•°å€ï¼Œä¹Ÿèƒ½è®¡ç®—å‡ºæ‰€éœ€çš„å—æ•°ã€‚é€šè¿‡åŠ ä¸Š block_size.x - 1ï¼Œå¯ä»¥é¿å…åœ¨æ•´æ•°é™¤æ³•ä¸­ä¸¢å¤±ä½™æ•°
+    // / block_size.x: è®¡ç®—æ‰€éœ€çš„å—æ•°grid_size.x
+    // batch_size + block_size.y è¡¨ç¤ºç»´åº¦yéœ€è¦çš„çº¿ç¨‹å—
+    // æ‰€éœ€çš„æ€»ä½“å—æ•°=block_size.x * block_size.y
     dim3 grid_size((HIDDEN_SIZE + block_size.x - 1) / block_size.x, (batch_size + block_size.y - 1) / block_size.y);
 
-    // ÊäÈë ¡ú Òş²Ø²ã£º
-    // Input to Hidden (X @ W1): d_hidden = d_input(batchsize, input_size) ÓëÈ¨ÖØ¾ØÕó nn->weights1(input_size, hidden_size) Ïà³Ë
-    // <<<>>>Õâ²¿·ÖÓï·¨ÓÃÓÚÔÚ CUDA ÖĞÆô¶¯Ò»¸öºËº¯Êı¡£ËüÖ¸¶¨ÁËÍø¸ñ£¨grid£©ºÍÏß³Ì¿é£¨block£©µÄÅäÖÃ
+    // è¾“å…¥ â†’ éšè—å±‚ï¼š
+    // Input to Hidden (X @ W1): d_hidden = d_input(batchsize, input_size) ä¸æƒé‡çŸ©é˜µ nn->weights1(input_size, hidden_size) ç›¸ä¹˜
+    // <<<>>>è¿™éƒ¨åˆ†è¯­æ³•ç”¨äºåœ¨ CUDA ä¸­å¯åŠ¨ä¸€ä¸ªæ ¸å‡½æ•°ã€‚å®ƒæŒ‡å®šäº†ç½‘æ ¼ï¼ˆgridï¼‰å’Œçº¿ç¨‹å—ï¼ˆblockï¼‰çš„é…ç½®
     matmul_a_b_kernel <<< grid_size, block_size >>> (d_input, nn->weights1, d_hidden, batch_size, INPUT_SIZE, HIDDEN_SIZE);
     CUDA_CHECK(cudaGetLastError());
 
-    // Add bias1 (one bias term for each neuron (multiple weights)): Ã¿¸öÊä³öµ¥Ôª¼ÓÉÏ¶ÔÓ¦µÄÆ«ÖÃÖµ bias2
-    // Íø¸ñËùĞèÏß³Ì¿éÊıÁ¿£º(batch_size * HIDDEN_SIZE + 255) / 256
-    // 256£º Ã¿¸öÏñËØµ¥¶ÀÒ»¸öÏß³Ì
+    // Add bias1 (one bias term for each neuron (multiple weights)): æ¯ä¸ªè¾“å‡ºå•å…ƒåŠ ä¸Šå¯¹åº”çš„åç½®å€¼ bias2
+    // ç½‘æ ¼æ‰€éœ€çº¿ç¨‹å—æ•°é‡ï¼š(batch_size * HIDDEN_SIZE + 255) / 256
+    // 256ï¼š æ¯ä¸ªåƒç´ å•ç‹¬ä¸€ä¸ªçº¿ç¨‹
     bias_add_kernel <<<(batch_size * HIDDEN_SIZE + 255) / 256, 256 >>> (d_hidden, nn->bias1, batch_size, HIDDEN_SIZE);
     CUDA_CHECK(cudaGetLastError());
 
-    // Apply ReLU: ¹ıReLU¼¤»îº¯Êı£º Ã¿¸öÏñËØµ¥¶ÀÒ»¸öÏß³Ì
+    // Apply ReLU: è¿‡ReLUæ¿€æ´»å‡½æ•°ï¼š æ¯ä¸ªåƒç´ ç‚¹å•ç‹¬ä¸€ä¸ªçº¿ç¨‹
+    // GPU çš„çº¿ç¨‹å—å¤§å°é€šå¸¸ä¸º 256 æˆ– 512ï¼Œä»¥åŒ¹é… GPUæµå¼å¤šå¤„ç†å™¨ï¼ˆSMï¼‰çš„çº¿ç¨‹è°ƒåº¦èƒ½åŠ›ã€‚
     relu_kernel << <(batch_size * HIDDEN_SIZE + 255) / 256, 256 >> > (d_hidden, batch_size * HIDDEN_SIZE);
     CUDA_CHECK(cudaGetLastError());
 
-    // Hidden to Output (Hidden @ W2): µÚ¶ş¸öÊä³ö²ã£¬ÊäÈëÎªµÚÒ»¸öÒş²Ø²ãÊäÈëd_hidden
-    // xÎ¬¶È´óĞ¡±ä³ÉOUTPUT_SIZE
-    // grid_size.yÕâ¶ùÓ¦¸ÃÊÇ²»±äµÄ
+    // Hidden to Output (Hidden @ W2): ç¬¬äºŒä¸ªè¾“å‡ºå±‚ï¼Œè¾“å…¥ä¸ºç¬¬ä¸€ä¸ªéšè—å±‚è¾“å…¥d_hidden
+    // xç»´åº¦å¤§å°å˜æˆOUTPUT_SIZE
+    // grid_size.yè¿™å„¿åº”è¯¥æ˜¯ä¸å˜çš„
     grid_size.x = (OUTPUT_SIZE + block_size.x - 1) / block_size.x;
     grid_size.y = (batch_size + block_size.y - 1) / block_size.y;
     matmul_a_b_kernel <<< grid_size, block_size >>> (d_hidden, nn->weights2, d_output, batch_size, HIDDEN_SIZE, OUTPUT_SIZE);
     CUDA_CHECK(cudaGetLastError());
 
-    // Add bias2 (also one bias term per neuron)£¬xÎ¬¶È½á¹ûµÄÃ¿¸öÔªËØ¶ÔÓ¦Ã¿¸öÏñËØ¶¼Òª¼Óbias
+    // Add bias2 (also one bias term per neuron)ï¼Œxç»´åº¦ç»“æœçš„æ¯ä¸ªå…ƒç´ å¯¹åº”æ¯ä¸ªåƒç´ éƒ½è¦åŠ bias
     bias_add_kernel <<< (batch_size * OUTPUT_SIZE + 255) / 256, 256 >>> (d_output, nn->bias2, batch_size, OUTPUT_SIZE);
     CUDA_CHECK(cudaGetLastError());
 
-    // Apply softmax£¬Êä³öÃ¿¸öÏß³Ì¿éÖ»ÒªÒ»¸öÏß³Ì£¨ÎªÉ¶Ò»¸öÏß³Ì¿éÖ»ÓĞÒ»¸öÏß³Ì£¿£©
-    // ÔÚÖ´ĞĞºËº¯ÊıÊ±£¬Ïß³Ì¿éÄÚµÄÏß³Ì¿ÉÒÔ²¢ĞĞÖ´ĞĞ£¬Ïß³ÌÖ®¼ä¿ÉÒÔ¹²ÏíÄÚ´æ£¬µ«Ïß³Ì¿éÖ®¼äÊÇÏà»¥¶ÀÁ¢µÄ¡£
-    // GPU¶¯Ì¬µ÷¶ÈÏß³Ì¿éµ½¸÷¸ö SM ÉÏÖ´ĞĞ
-    // Í¬Ê±¼ÆËãËùÓĞÖ¸ÊıµÄºÍ sum, Òò´ËÏß³ÌÎŞ·¨ÔÙ²ğ¿ª²¢ĞĞ£¬ĞèÒªbatch_sizeÃ¿¸öÌØÕ÷ÏòÁ¿¶¼×ösoftmax¸ÅÂÊ·Ö²¼ÓÃÓÚ·ÖÀà
+    // Apply softmaxï¼Œè¾“å‡ºæ¯ä¸ªçº¿ç¨‹å—åªè¦ä¸€ä¸ªçº¿ç¨‹ï¼ˆä¸ºå•¥ä¸€ä¸ªçº¿ç¨‹å—åªæœ‰ä¸€ä¸ªçº¿ç¨‹ï¼Ÿï¼‰
+    // åœ¨æ‰§è¡Œæ ¸å‡½æ•°æ—¶ï¼Œçº¿ç¨‹å—å†…çš„çº¿ç¨‹å¯ä»¥å¹¶è¡Œæ‰§è¡Œï¼Œçº¿ç¨‹ä¹‹é—´å¯ä»¥å…±äº«å†…å­˜ï¼Œä½†çº¿ç¨‹å—ä¹‹é—´æ˜¯ç›¸äº’ç‹¬ç«‹çš„ã€‚
+    // GPUåŠ¨æ€è°ƒåº¦çº¿ç¨‹å—åˆ°å„ä¸ª SM ä¸Šæ‰§è¡Œ
+    // åŒæ—¶è®¡ç®—æ‰€æœ‰æŒ‡æ•°çš„å’Œ sum, å› æ­¤çº¿ç¨‹æ— æ³•å†æ‹†å¼€å¹¶è¡Œï¼Œéœ€è¦batch_sizeæ¯ä¸ªç‰¹å¾å‘é‡éƒ½åšsoftmaxæ¦‚ç‡åˆ†å¸ƒç”¨äºåˆ†ç±»
     softmax_kernel <<< batch_size, 1 >>> (d_output, batch_size, OUTPUT_SIZE);
     CUDA_CHECK(cudaGetLastError());
 
-    // cudaDeviceSynchronize »á×èÈûÖ÷»ú³ÌĞò£¬Ö±µ½ËùÓĞÔÚÉè±¸ÉÏÆô¶¯µÄ CUDA ºËº¯Êı£¨kernel£©ºÍÄÚ´æ¿½±´²Ù×÷Íê³É¡£ÕâÒâÎ¶×ÅÔÚµ÷ÓÃ cudaDeviceSynchronize Ö®ºó£¬Ö÷»ú´úÂë»áµÈ´ı GPU ÉÏµÄËùÓĞÈÎÎñÍê³ÉºóÔÙ¼ÌĞøÖ´ĞĞ
+    // cudaDeviceSynchronize ä¼šé˜»å¡ä¸»æœºç¨‹åºï¼Œç›´åˆ°æ‰€æœ‰åœ¨è®¾å¤‡ä¸Šå¯åŠ¨çš„ CUDA æ ¸å‡½æ•°ï¼ˆkernelï¼‰å’Œå†…å­˜æ‹·è´æ“ä½œå®Œæˆã€‚è¿™æ„å‘³ç€åœ¨è°ƒç”¨ cudaDeviceSynchronize ä¹‹åï¼Œä¸»æœºä»£ç ä¼šç­‰å¾… GPU ä¸Šçš„æ‰€æœ‰ä»»åŠ¡å®Œæˆåå†ç»§ç»­æ‰§è¡Œ
     CUDA_CHECK(cudaDeviceSynchronize());
 }
 
 #endif
 
-// ºËĞÄCUDAºËº¯Êı:Ç°Ïò´«²¥º¯Êı
+// æ ¸å¿ƒCUDAæ ¸å‡½æ•°:å‰å‘ä¼ æ’­å‡½æ•°
 #ifndef core_kernel_backward
 #define core_kernel_backward
 /* Modify cross_entropy_loss to work with batches (w/out softmax because we already do this in the forward pass)
-¼ÆËã½»²æìØËğÊ§£¬ÓÃÓÚºâÁ¿Ô¤²âÖµ£¨output£©ºÍÕæÊµ±êÇ©£¨labels£©Ö®¼äµÄ²îÒì£¬ÓÃÓÚºâÁ¿Á½¸ö¸ÅÂÊ·Ö²¼Ö®¼äµÄ²îÒì£¬Í¨³£ÓÃÓÚ·ÖÀàÈÎÎñ
-output: Ò»¸öÖ¸Ïò¸¡µãÊıÊı×éµÄÖ¸Õë£¬°üº¬Ä£ĞÍµÄÊä³ö¸ÅÂÊ£¨Í¨³£ÊÇ¾­¹ı softmax ´¦ÀíµÄ£©¡£
-labels: Ò»¸öÖ¸ÏòÕûÊıÊı×éµÄÖ¸Õë£¬°üº¬Ã¿¸öÑù±¾µÄÕæÊµ±êÇ©£¨Àà±ğË÷Òı£©¡£
-batch_size: Ò»¸öÕûÊı£¬±íÊ¾Åú´ÎÖĞµÄÑù±¾ÊıÁ¿¡£
-YiÎª0»ò1µÄ¼ÆËã½á¹û£¬ÏÂÃæµÄCEÖ»ÄÜÓÃÔÚ¶ş·ÖÀà¡£
+è®¡ç®—äº¤å‰ç†µæŸå¤±ï¼Œç”¨äºè¡¡é‡é¢„æµ‹å€¼ï¼ˆoutputï¼‰å’ŒçœŸå®æ ‡ç­¾ï¼ˆlabelsï¼‰ä¹‹é—´çš„å·®å¼‚ï¼Œç”¨äºè¡¡é‡ä¸¤ä¸ªæ¦‚ç‡åˆ†å¸ƒä¹‹é—´çš„å·®å¼‚ï¼Œé€šå¸¸ç”¨äºåˆ†ç±»ä»»åŠ¡
+output: ä¸€ä¸ªæŒ‡å‘æµ®ç‚¹æ•°æ•°ç»„çš„æŒ‡é’ˆï¼ŒåŒ…å«æ¨¡å‹çš„è¾“å‡ºæ¦‚ç‡ï¼ˆé€šå¸¸æ˜¯ç»è¿‡ softmax å¤„ç†çš„ï¼‰ã€‚
+labels: ä¸€ä¸ªæŒ‡å‘æ•´æ•°æ•°ç»„çš„æŒ‡é’ˆï¼ŒåŒ…å«æ¯ä¸ªæ ·æœ¬çš„çœŸå®æ ‡ç­¾ï¼ˆç±»åˆ«ç´¢å¼•ï¼‰ã€‚
+batch_size: ä¸€ä¸ªæ•´æ•°ï¼Œè¡¨ç¤ºæ‰¹æ¬¡ä¸­çš„æ ·æœ¬æ•°é‡ã€‚
+Yiä¸º0æˆ–1çš„è®¡ç®—ç»“æœï¼Œä¸‹é¢çš„CEåªèƒ½ç”¨åœ¨äºŒåˆ†ç±»ã€‚
 */
 float cross_entropy_loss(float* output, int* labels, int batch_size) {
     float total_loss = 0.0f;
     for (int b = 0; b < batch_size; b++) {
-        // ¶ÔÃ¿¸öÑù±¾£¬¼ÆËã¶ÔÓ¦±êÇ©µÄ¸ÅÂÊ¶ÔÊıÖµ log(fmaxf(output[label], 1e-7f))
-        // b * OUTPUT_SIZE ÊÇµ±Ç°Ñù±¾ÔÚÊä³öÊı×éÖĞµÄÆğÊ¼Ë÷Òı£¬labels[b] ÊÇµ±Ç°Ñù±¾µÄÕæÊµ±êÇ©£¨Àà±ğË÷Òı£©
-        total_loss -= logf(fmaxf(output[b * OUTPUT_SIZE + labels[b]], 1e-7f)); // logf º¯Êı¼ÆËãµ±Ç°¸ÅÂÊµÄ×ÔÈ»¶ÔÊı£¬½á¹ûÎª¸ºÖµ£¬Òò´ËÊ¹ÓÃ -= À´ÀÛ¼ÆËğÊ§
+        // å¯¹æ¯ä¸ªæ ·æœ¬ï¼Œè®¡ç®—å¯¹åº”æ ‡ç­¾çš„æ¦‚ç‡å¯¹æ•°å€¼ log(fmaxf(output[label], 1e-7f))
+        // b * OUTPUT_SIZE æ˜¯å½“å‰æ ·æœ¬åœ¨è¾“å‡ºæ•°ç»„ä¸­çš„èµ·å§‹ç´¢å¼•ï¼Œlabels[b] æ˜¯å½“å‰æ ·æœ¬çš„çœŸå®æ ‡ç­¾ï¼ˆç±»åˆ«ç´¢å¼•ï¼‰
+        total_loss -= logf(fmaxf(output[b * OUTPUT_SIZE + labels[b]], 1e-7f)); // logf å‡½æ•°è®¡ç®—å½“å‰æ¦‚ç‡çš„è‡ªç„¶å¯¹æ•°ï¼Œç»“æœä¸ºè´Ÿå€¼ï¼Œå› æ­¤ä½¿ç”¨ -= æ¥ç´¯è®¡æŸå¤±
     }
-    return total_loss / batch_size; // ·µ»ØÆ½¾ùËğÊ§Öµ
+    return total_loss / batch_size; // è¿”å›å¹³å‡æŸå¤±å€¼
 }
 
 // Add this CUDA kernel to zero out gradients
-// gradientsÇåÁã
+// gradientsæ¸…é›¶
 __global__ void zero_grad_kernel(float* grad, int size) {
     int idx = blockIdx.x * blockDim.x + threadIdx.x;
     if (idx < size) {
@@ -362,64 +400,474 @@ __global__ void zero_grad_kernel(float* grad, int size) {
     }
 }
 
-/* CUDA kernel for computing output gradients£º ¼ÆËãÃ¿¸öÊä³öµ¥ÔªµÄÊä³ö²ãÌİ¶È
-¸ù¾İ½»²æìØËğÊ§ºÍSoftmaxµÄµ¼Êı¹«Ê½£¬Ìİ¶ÈÎª output - one_hot(labels) (Ô¤²â¸ÅÂÊ¼õÈ¥ÕæÊµ±êÇ©µÄone-hot±àÂë)
-float* grad_output: Ö¸Ïò¸¡µãÊıÊı×éµÄÖ¸Õë£¬ÓÃÓÚ´æ´¢¼ÆËã³öµÄÊä³öÌİ¶È¡£
-float* output: Ö¸Ïò¸¡µãÊıÊı×éµÄÖ¸Õë£¬°üº¬Ä£ĞÍµÄÊä³ö¸ÅÂÊ£¨Í¨³£ÊÇ¾­¹ı Softmax ´¦ÀíµÄ£©¡£
-int* labels: Ö¸ÏòÕûÊıÊı×éµÄÖ¸Õë£¬°üº¬Ã¿¸öÑù±¾µÄÕæÊµ±êÇ©£¨Àà±ğË÷Òı£©¡£
-int batch_size: Ò»¸öÕûÊı£¬±íÊ¾Åú´ÎÖĞµÄÑù±¾ÊıÁ¿¡£
-Ã¿¸öÑù±¾µ¥¶À¼ÆËãÊä³ö²ãµÄÌİ¶È
-´ËºËº¯ÊıÍ¨¹ı²¢ĞĞ´¦ÀíÃ¿¸öÑù±¾£¬Ê×ÏÈ½«Ä£ĞÍµÄÊä³ö¸ÅÂÊ¸³Öµ¸øÌİ¶ÈÊä³ö£¬È»ºó¸ù¾İÕæÊµ±êÇ©µ÷ÕûÏàÓ¦µÄÌİ¶ÈÖµ¡£×îÖÕ£¬grad_output ÖĞ´æ´¢µÄ¾ÍÊÇÃ¿¸öÑù±¾ÔÚÃ¿¸öÀà±ğÉÏµÄÌİ¶È£¬ÓÃÓÚºóĞøµÄ·´Ïò´«²¥ºÍÈ¨ÖØ¸üĞÂ¡£
-¶ÔÓÚÕæÊµ±êÇ©¶ÔÓ¦µÄÀà±ğ£¬ÖµÎª Êä³ö¸ÅÂÊ - 1.0¡£
-¶ÔÓÚÆäËûÀà±ğ£¬ÖµÎª Êä³ö¸ÅÂÊ¡£ÕæÊµ±êÇ©¶ÔÓ¦µÄÀà±ğµÄÌİ¶ÈÖµĞ¡ÓÚ 0£¬Õâ±íÃ÷Ä£ĞÍÔÚ¸ÃÀà±ğµÄÔ¤²â¸ÅÂÊµÍÓÚÕæÊµ±êÇ©µÄÆÚÍû£¨¼´ÆÚÍûÎª 1£©£¬ĞèÒªÍ¨¹ı·´Ïò´«²¥À´µ÷ÕûÈ¨ÖØ£¬ÒÔÌá¸ß¸ÃÀà±ğµÄÔ¤²â¸ÅÂÊ¡£
-¶ÔÓÚÆäËûÀà±ğ£¬Ìİ¶ÈÖµ±£³ÖÎªÊä³ö¸ÅÂÊ£¬ÕâÑù¿ÉÒÔÈ·±£Ä£ĞÍÔÚ¸üĞÂÈ¨ÖØÊ±£¬Ä£ĞÍ¶ÔÕâĞ©Àà±ğµÄÔ¤²âĞÅĞÄ£¬ÇÒÔÚ¸üĞÂÊ±Ò²»á¿¼ÂÇÕâĞ©ĞÅĞÄ¡£
-Ìİ¶ÈµÄ·ûºÅ£¨Õı»ò¸º£©¾ö¶¨ÁËÈ¨ÖØÊÇÔö¼Ó»¹ÊÇ¼õÉÙ£¬¶øÌİ¶ÈµÄ´óĞ¡£¨ÓÉÊä³ö¸ÅÂÊ¾ö¶¨£©ÔòÓ°ÏìÁË¸üĞÂµÄ·ù¶È
+/* CUDA kernel for computing output gradientsï¼š è®¡ç®—æ¯ä¸ªè¾“å‡ºå•å…ƒçš„è¾“å‡ºå±‚æ¢¯åº¦
+æ ¹æ®äº¤å‰ç†µæŸå¤±å’ŒSoftmaxçš„å¯¼æ•°å…¬å¼ï¼Œæ¢¯åº¦ä¸º output - one_hot(labels) (é¢„æµ‹æ¦‚ç‡å‡å»çœŸå®æ ‡ç­¾çš„one-hotç¼–ç )
+float* grad_output: æŒ‡å‘æµ®ç‚¹æ•°æ•°ç»„çš„æŒ‡é’ˆï¼Œç”¨äºå­˜å‚¨è®¡ç®—å‡ºçš„è¾“å‡ºæ¢¯åº¦ã€‚
+float* output: æŒ‡å‘æµ®ç‚¹æ•°æ•°ç»„çš„æŒ‡é’ˆï¼ŒåŒ…å«æ¨¡å‹çš„è¾“å‡ºæ¦‚ç‡ï¼ˆé€šå¸¸æ˜¯ç»è¿‡ Softmax å¤„ç†çš„ï¼‰ã€‚
+int* labels: æŒ‡å‘æ•´æ•°æ•°ç»„çš„æŒ‡é’ˆï¼ŒåŒ…å«æ¯ä¸ªæ ·æœ¬çš„çœŸå®æ ‡ç­¾ï¼ˆç±»åˆ«ç´¢å¼•ï¼‰ã€‚
+int batch_size: ä¸€ä¸ªæ•´æ•°ï¼Œè¡¨ç¤ºæ‰¹æ¬¡ä¸­çš„æ ·æœ¬æ•°é‡ã€‚
+æ¯ä¸ªæ ·æœ¬å•ç‹¬è®¡ç®—è¾“å‡ºå±‚çš„æ¢¯åº¦
+æ­¤æ ¸å‡½æ•°é€šè¿‡å¹¶è¡Œå¤„ç†æ¯ä¸ªæ ·æœ¬ï¼Œé¦–å…ˆå°†æ¨¡å‹çš„è¾“å‡ºæ¦‚ç‡èµ‹å€¼ç»™æ¢¯åº¦è¾“å‡ºï¼Œç„¶åæ ¹æ®çœŸå®æ ‡ç­¾è°ƒæ•´ç›¸åº”çš„æ¢¯åº¦å€¼ã€‚æœ€ç»ˆï¼Œgrad_output ä¸­å­˜å‚¨çš„å°±æ˜¯æ¯ä¸ªæ ·æœ¬åœ¨æ¯ä¸ªç±»åˆ«ä¸Šçš„æ¢¯åº¦ï¼Œç”¨äºåç»­çš„åå‘ä¼ æ’­å’Œæƒé‡æ›´æ–°ã€‚
+å¯¹äºçœŸå®æ ‡ç­¾å¯¹åº”çš„ç±»åˆ«ï¼Œå€¼ä¸º è¾“å‡ºæ¦‚ç‡ - 1.0ã€‚
+å¯¹äºå…¶ä»–ç±»åˆ«ï¼Œå€¼ä¸º è¾“å‡ºæ¦‚ç‡ã€‚çœŸå®æ ‡ç­¾å¯¹åº”çš„ç±»åˆ«çš„æ¢¯åº¦å€¼å°äº 0ï¼Œè¿™è¡¨æ˜æ¨¡å‹åœ¨è¯¥ç±»åˆ«çš„é¢„æµ‹æ¦‚ç‡ä½äºçœŸå®æ ‡ç­¾çš„æœŸæœ›ï¼ˆå³æœŸæœ›ä¸º 1ï¼‰ï¼Œéœ€è¦é€šè¿‡åå‘ä¼ æ’­æ¥è°ƒæ•´æƒé‡ï¼Œä»¥æé«˜è¯¥ç±»åˆ«çš„é¢„æµ‹æ¦‚ç‡ã€‚
+å¯¹äºå…¶ä»–ç±»åˆ«ï¼Œæ¢¯åº¦å€¼ä¿æŒä¸ºè¾“å‡ºæ¦‚ç‡ï¼Œè¿™æ ·å¯ä»¥ç¡®ä¿æ¨¡å‹åœ¨æ›´æ–°æƒé‡æ—¶ï¼Œæ¨¡å‹å¯¹è¿™äº›ç±»åˆ«çš„é¢„æµ‹ä¿¡å¿ƒï¼Œä¸”åœ¨æ›´æ–°æ—¶ä¹Ÿä¼šè€ƒè™‘è¿™äº›ä¿¡å¿ƒã€‚
+æ¢¯åº¦çš„ç¬¦å·ï¼ˆæ­£æˆ–è´Ÿï¼‰å†³å®šäº†æƒé‡æ˜¯å¢åŠ è¿˜æ˜¯å‡å°‘ï¼Œè€Œæ¢¯åº¦çš„å¤§å°ï¼ˆç”±è¾“å‡ºæ¦‚ç‡å†³å®šï¼‰åˆ™å½±å“äº†æ›´æ–°çš„å¹…åº¦
 */
 __global__ void compute_output_gradients_kernel(float* grad_output, float* output, int* labels, int batch_size) {
-    int b = blockIdx.x * blockDim.x + threadIdx.x;  // ¼ÆËãµ±Ç°Ïß³Ì´¦ÀíµÄÑù±¾Ë÷Òı b
+    int b = blockIdx.x * blockDim.x + threadIdx.x;  // è®¡ç®—å½“å‰çº¿ç¨‹å¤„ç†çš„æ ·æœ¬ç´¢å¼• bï¼ŒblockIdx.xè¡¨ç¤ºå—å¤§å°
     if (b < batch_size) {  
-        for (int i = 0; i < OUTPUT_SIZE; ++i) {  // ±éÀúÊä³öµÄÃ¿¸öÀà±ğ, OUTPUT_SIZE=10, ½«µ±Ç°Ñù±¾µÄÊä³ö¸ÅÂÊ¸´ÖÆµ½ grad_output ÖĞ¡£ÕâÊÇ¼ÆËãÌİ¶ÈµÄµÚÒ»²½¡£ÆäËûÎ»ÖÃÎª1²»ÊÇÓ¦¸Ã³ËÒÔ0¹éÁãÂğ£¿
+        for (int i = 0; i < OUTPUT_SIZE; ++i) {  // éå†è¾“å‡ºçš„æ¯ä¸ªç±»åˆ«, OUTPUT_SIZE=10, å°†å½“å‰æ ·æœ¬çš„è¾“å‡ºæ¦‚ç‡å¤åˆ¶åˆ° grad_output ä¸­ã€‚è¿™æ˜¯è®¡ç®—æ¢¯åº¦çš„ç¬¬ä¸€æ­¥ã€‚å…¶ä»–ä½ç½®ä¸º1ä¸æ˜¯åº”è¯¥ä¹˜ä»¥0å½’é›¶å—ï¼Ÿ
             grad_output[b * OUTPUT_SIZE + i] = output[b * OUTPUT_SIZE + i];
         }
-        // ¶ÔÓÚµ±Ç°Ñù±¾µÄÕæÊµ±êÇ©£¬½«¶ÔÓ¦µÄÌİ¶ÈÖµ¼õÈ¥ 1¡£
-        // ÔÚ one-hot ±àÂëÖĞ£¬ÕæÊµ±êÇ©µÄÎ»ÖÃÎª 1£¬ÆäÓàÎ»ÖÃÎª 0£¬Òò´Ë¼õÈ¥ 1 ±íÊ¾½«ÕæÊµ±êÇ©µÄÓ°ÏìÒıÈëÌİ¶È¼ÆËã
-        // grad_output´ÎÊ±´æµÄ¾ÍÊÇµÚb¸öÑù±¾µÄÔÚÃ¿¸öÀà±ğÉÏµÄÌİ¶ÈÖµ,Ìİ¶È·´Ó³ÁËËğÊ§º¯ÊıÏà¶ÔÓÚÄ£ĞÍ²ÎÊıµÄ±ä»¯ÂÊ
-        // ×îºó²ÎÊıbias¸üĞÂstepsize=grad_output[i] * learningrate(Ñ§Ï°ÂÊ)£¬newbias = oldbias - stepsize
-        // ÆäËûnn->weights2µÄÌİ¶ÈµÈÓÚgrad_output[i]*Yi£¨Yi=d_hidden[i],Òş²Ø²ãµÄÊä³öÔªËØ£©
+        // å¯¹äºå½“å‰æ ·æœ¬çš„çœŸå®æ ‡ç­¾ï¼Œå°†å¯¹åº”çš„æ¢¯åº¦å€¼å‡å» 1ã€‚
+        // åœ¨ one-hot ç¼–ç ä¸­ï¼ŒçœŸå®æ ‡ç­¾çš„ä½ç½®ä¸º 1ï¼Œå…¶ä½™ä½ç½®ä¸º 0ï¼Œå› æ­¤å‡å» 1 è¡¨ç¤ºå°†çœŸå®æ ‡ç­¾çš„å½±å“å¼•å…¥æ¢¯åº¦è®¡ç®—
+        // grad_outputæ¬¡æ—¶å­˜çš„å°±æ˜¯ç¬¬bä¸ªæ ·æœ¬çš„åœ¨æ¯ä¸ªç±»åˆ«ä¸Šçš„æ¢¯åº¦å€¼,æ¢¯åº¦åæ˜ äº†æŸå¤±å‡½æ•°ç›¸å¯¹äºæ¨¡å‹å‚æ•°çš„å˜åŒ–ç‡
+        // æœ€åå‚æ•°biasæ›´æ–°stepsize=grad_output[i] * learningrate(å­¦ä¹ ç‡)ï¼Œnewbias = oldbias - stepsize
+        // å…¶ä»–nn->weights2çš„æ¢¯åº¦ç­‰äºgrad_output[i]*Yiï¼ˆYi=d_hidden[i],éšè—å±‚çš„è¾“å‡ºå…ƒç´ ï¼‰
         grad_output[b * OUTPUT_SIZE + labels[b]] -= 1.0f;
     }
 }
 
 // CUDA kernel for updating gradients
-// ¸üĞÂbias1ºÍbias2£¬ ¿ÉÒÔÕë¶ÔÃ¿¸öÑù±¾²¢ĞĞ¸üĞÂ
+// æ›´æ–°weightså’Œbiasçš„æ¢¯åº¦ï¼Œ å¯ä»¥é’ˆå¯¹æ¯ä¸ªæ ·æœ¬å¹¶è¡Œæ›´æ–°
+// å‚è€ƒå›¾CrossEntropy.png:è¾“å‡ºå±‚grad_output = grad_output[b * OUTPUT_SIZE + labels[b]] - 1 = output[b * OUTPUT_SIZE + i] - 1 = p - 1
+// ä¸€èˆ¬dim3 block_size(32, 32);å³å—å¤§å°ä¸º32*32ï¼Œå³æ¯ä¸ªæ ·æœ¬åƒç´ ç‰¹å¾å€¼
 /*
-grad_weights: ´æ´¢È¨ÖØÌİ¶ÈµÄÊı×é¡£
-grad_bias: ´æ´¢Æ«ÖÃÌİ¶ÈµÄÊı×é¡£
-grad_layer: µ±Ç°²ãµÄÌİ¶È¡£
-prev_layer: Ç°Ò»²ãµÄÊä³ö¡£
-batch_size: µ±Ç°Åú´ÎµÄÑù±¾ÊıÁ¿¡£
-prev_size: Ç°Ò»²ãµÄ½ÚµãÊıÁ¿¡£
-curr_size: µ±Ç°²ãµÄ½ÚµãÊıÁ¿¡£
+grad_weights: å­˜å‚¨å½“å‰å±‚æƒé‡weightsæ¢¯åº¦çš„æ•°ç»„ã€‚
+grad_bias: å­˜å‚¨å½“å‰å±‚åç½®biasesæ¢¯åº¦çš„æ•°ç»„ã€‚
+grad_layer: å½“å‰å±‚çš„æ¢¯åº¦ ç»“æœæ˜¯p*weightã€‚
+prev_layer: å‰ä¸€å±‚çš„è¾“å‡º ç»“æœæ˜¯hidden^iã€‚
+batch_size: å½“å‰æ‰¹æ¬¡çš„æ ·æœ¬æ•°é‡ã€‚
+prev_size: å‰ä¸€å±‚çš„èŠ‚ç‚¹æ•°é‡ã€‚ï¼ˆåˆ†åˆ«ä¸ºinputsize=1024ï¼ˆ32*32ï¼‰å’ŒHIDDEN_SIZEï¼‰,å†³å®šäº†gridsizeå¤§å°ï¼Œè¡¨ç¤ºæ¯ä¸ªæ ·æœ¬çš„ç‰¹å¾å‘é‡é•¿åº¦
+curr_size: å½“å‰å±‚çš„èŠ‚ç‚¹æ•°é‡ã€‚ï¼ˆåˆ†åˆ«ä¸ºHIDDEN_SIZE=4096å’Œoutput_size=10ï¼‰,å’Œprev_sizeä¸€èµ·å†³å®šäº†gridsizeå¤§å°ï¼Œè¡¨ç¤ºæ¯ä¸ªæ ·æœ¬ç»è¿‡layerå¤„ç†åçš„ç‰¹å¾å‘é‡é•¿åº¦
+ç”³è¯·çš„gridå¤§å°ä¸ºï¼šgrid_size((prev_size + block_size.x - 1) / block_size.x, (curr_size + block_size.y - 1) / block_size.y); ç”±äºæ˜¯å…¨è¿æ¥å±‚ï¼Œå› æ­¤éœ€è¦çº¿ç¨‹æ•°ä¸ºprev_size / block_size * curr_size / block_size
 */
 __global__ void update_gradients_kernel(float* grad_weights, float* grad_bias, float* grad_layer, float* prev_layer, int batch_size, int prev_size, int curr_size) {
-    int i = blockIdx.y;  // ½ÚµãĞĞ
-    int j = blockIdx.x * blockDim.x + threadIdx.x;  // ½ÚµãÁĞ
+    int i = blockIdx.y;  // ä»£è¡¨å½“å‰å±‚çš„èŠ‚ç‚¹ç´¢å¼•ï¼ˆè¡Œï¼‰ï¼Œç”±å—çš„ y åæ ‡å†³å®šã€‚ç”±å½“å‰å±‚çš„å¤§å°ï¼ˆcurr_sizeï¼‰å†³å®š0-9æˆ–è€…4095
+    int j = blockIdx.x * blockDim.x + threadIdx.x;  // èŠ‚ç‚¹åˆ—,j ä»£è¡¨å‰ä¸€å±‚çš„èŠ‚ç‚¹ç´¢å¼•ï¼ˆåˆ—ï¼‰ï¼Œç”±å—çš„ x åæ ‡å’Œçº¿ç¨‹åœ¨å—å†…çš„ç´¢å¼•å†³å®šã€‚é€ä¸ªåƒç´ å¤§å°å€¼è®¡ç®—
 
     if (i < curr_size && j < prev_size) {
         float grad_w_sum = 0.0f;
+        // **è®¡ç®—æƒé‡æ¢¯åº¦**ï¼šå¯¹äºæ¯ä¸ªæƒé‡çŸ©é˜µçš„å…ƒç´ `(i, j)`ï¼Œç´¯åŠ æ‰€æœ‰æ‰¹æ¬¡ä¸­`grad_layer[b * curr_size + i] * prev_layer[b * prev_size + j]`çš„å’Œï¼Œå¹¶é€šè¿‡`atomicAdd`ç´¯åŠ åˆ°`grad_weights[i * prev_size + j]`ã€‚
         for (int b = 0; b < batch_size; ++b) {
-            grad_w_sum += grad_layer[b * curr_size + i] * prev_layer[b * prev_size + j];
+            grad_w_sum += grad_layer[b * curr_size + i] * prev_layer[b * prev_size + j];  // å‚è€ƒå›¾CrossEntropy3.png : ç­‰äº p * y^i ï¼ˆyi=hidden^i * weight^iï¼‰
         }
-        atomicAdd(&grad_weights[i * prev_size + j], grad_w_sum);  // atomicAddsÀÛ¼Ó£¬ĞÔÄÜÎÊÌâ¡£ÔÚ¶àÏß³Ì»·¾³ÏÂ¶ÔÍ¬Ò»¸öÄÚ´æµØÖ·½øĞĞĞ´²Ù×÷
+        atomicAdd(&grad_weights[i * prev_size + j], grad_w_sum);  // atomicAddsç´¯åŠ ï¼Œæ€§èƒ½é—®é¢˜ã€‚åœ¨å¤šçº¿ç¨‹ç¯å¢ƒä¸‹å¯¹åŒä¸€ä¸ªæ˜¾å­˜åœ°å€è¿›è¡Œå†™æ“ä½œ
 
+        //  ä»…åœ¨å¤„ç†å‰ä¸€å±‚çš„ç¬¬ä¸€ä¸ªèŠ‚ç‚¹æ—¶è®¡ç®—åç½®çš„æ¢¯åº¦ã€‚è¿™æ ·å¯ä»¥ç¡®ä¿æ¯ä¸ªèŠ‚ç‚¹åªåœ¨ä¸€ä¸ªçº¿ç¨‹ä¸­å¤„ç†åç½®çš„æ›´æ–°ï¼Œé¿å…é‡å¤è®¡ç®—
+        // biasçš„ç´¯åŠ æ¢¯åº¦å’Œprev_layerè¾“å‡ºæ— å…³ï¼Œéƒ½æ˜¯æ¢¯åº¦ç´¯åŠ ,è€Œæ˜¯å¯¹ä¸€ä¸ªæ‰¹æ¬¡ä¸­çš„æ‰€æœ‰æ ·æœ¬è¿›è¡Œç´¯åŠ ï¼Œæ¯æ¬¡ j == 0 éƒ½ä¼šå¯åŠ¨åç½®æ¢¯åº¦ç´¯åŠ ã€‚
+        // 4096ä¸ªèŠ‚ç‚¹æ¯ä¸ªbiaséƒ½åœ¨ç¬¬ä¸€ä¸ªèŠ‚ç‚¹è®¡ç®—åˆ°åé¢biasä¸­
         if (j == 0) {
             float grad_b_sum = 0.0f;
+            // **è®¡ç®—åç½®æ¢¯åº¦**ï¼šå½“`j == 0`æ—¶ï¼Œç´¯åŠ æ‰€æœ‰æ‰¹æ¬¡ä¸­`grad_layer[b * curr_size + i]`çš„å’Œåˆ°`grad_bias[i]`ã€‚
             for (int b = 0; b < batch_size; ++b) {
-                grad_b_sum += grad_layer[b * curr_size + i];
+                grad_b_sum += grad_layer[b * curr_size + i];  // dCE / dBias = grad_output[b * OUTPUT_SIZE + labels[b]] (compute_output_gradients_kernelä¸­è®¡ç®—çš„è¾“å‡ºå’Œbiasçš„æ¢¯åº¦p-1)
             }
-            atomicAdd(&grad_bias[i], grad_b_sum);
+            atomicAdd(&grad_bias[i], grad_b_sum);  // atomicAddsç´¯åŠ , æ¢¯åº¦ä¼šå…±äº«ï¼Œåœ¨å¤šçº¿ç¨‹ç¯å¢ƒä¸‹å¯¹åŒä¸€ä¸ªæ˜¾å­˜åœ°å€è¿›è¡Œå†™æ“ä½œ
         }
     }
 }
 
+// reLUçš„æ¢¯åº¦å‡½æ•°ï¼ˆè®¡ç®—ReLUçš„å¯¼æ•°ï¼‰ï¼Œdrelu_kernelå°†æ¿€æ´»åçš„éšè—å±‚è¾“å‡ºçš„æ¢¯åº¦ç½®ä¸º0æˆ–1ï¼ˆ>0æ˜¯y=xï¼‰
+__global__ void drelu_kernel(float* x, float* d_ReLU_out, int size) {
+    int idx = blockIdx.x * blockDim.x + threadIdx.x; // æ ·æœ¬çš„æ¯ä¸ªç‰¹å¾å€¼éƒ½åšreluæ¢¯åº¦
+    if (idx < size) {
+        d_ReLU_out[idx] = x[idx] > 0.0f ? 1.0f : 0.0f;
+    }
+}
+
+// Element-wise multiplication of d_dX2 and d_grad_hidden
+// ç”¨äºåœ¨ GPU ä¸Šå¯¹ä¸¤ä¸ªæ•°ç»„è¿›è¡Œé€å…ƒç´ ç›¸ä¹˜çš„æ“ä½œ
+// ä¸€èˆ¬ä»¥ä¸‹çŸ©é˜µå¤§å°ä¸€æ ·
+// float* grad1: æŒ‡å‘ç¬¬ä¸€ä¸ªæµ®ç‚¹æ•°ç»„çš„æŒ‡é’ˆï¼ˆå°†è¦è¢«ä¿®æ”¹çš„æ•°ç»„ï¼‰ã€‚
+// float* grad2: æŒ‡å‘ç¬¬äºŒä¸ªæµ®ç‚¹æ•°ç»„çš„æŒ‡é’ˆï¼ˆç”¨äºä¹˜æ³•çš„æ•°ç»„ï¼‰ã€‚
+// int size : æ•°ç»„çš„å¤§å°ï¼Œç”¨äºæ§åˆ¶å¾ªç¯çš„è¾¹ç•Œï¼Œéšè—å±‚ä¸­ç­‰äºbatch_size * HIDDEN_SIZEã€‚
+__global__ void multiply_gradients_kernel(float* grad1, float* grad2, int size) {
+    int idx = blockIdx.x * blockDim.x + threadIdx.x;
+    if (idx < size) {
+        grad1[idx] *= grad2[idx];
+    }
+}
+
+/* Modified backward function using CUDA kernels
+shape rotating is on par with the visual example (excalidraw diagram) in the mnist-cuda git repo (also found in "assets")
+åˆå§‹åŒ–æ¢¯åº¦ä¸ºé›¶: ä½¿ç”¨ CUDA æ ¸å¿ƒå‡½æ•°å°†æ‰€æœ‰æ¢¯åº¦åˆå§‹åŒ–ä¸ºé›¶ã€‚
+è®¡ç®—è¾“å‡ºå±‚çš„æ¢¯åº¦: è®¡ç®—æŸå¤±ç›¸å¯¹äºè¾“å‡ºå±‚çš„æ¢¯åº¦ã€‚
+æ›´æ–°æƒé‡å’Œåç½®çš„æ¢¯åº¦: æ ¹æ®è®¡ç®—å¾—åˆ°çš„æ¢¯åº¦æ›´æ–°æƒé‡å’Œåç½®ã€‚
+è®¡ç®—ä¸­é—´æ¢¯åº¦: è®¡ç®—æŸå¤±ç›¸å¯¹äºéšè—å±‚çš„è¾“å…¥çš„æ¢¯åº¦ã€‚
+é‡Šæ”¾å†…å­˜: é‡Šæ”¾åœ¨ GPU ä¸Šåˆ†é…çš„å†…å­˜ã€‚
+å‡½æ•°å‚æ•°:
+NeuralNetwork* nn: æŒ‡å‘ç¥ç»ç½‘ç»œç»“æ„çš„æŒ‡é’ˆï¼ŒåŒ…å«æƒé‡å’Œåç½®çš„æ¢¯åº¦ã€‚
+float* d_input: è¾“å…¥å±‚çš„æ¿€æ´»å€¼ã€‚
+float* d_hidden: éšè—å±‚çš„æ¿€æ´»å€¼ã€‚
+float* d_output: è¾“å‡ºå±‚çš„æ¿€æ´»å€¼ã€‚
+int* d_labels: ç›®æ ‡æ ‡ç­¾ã€‚
+int batch_size: å½“å‰æ‰¹æ¬¡çš„æ ·æœ¬æ•°é‡ã€‚
+*/
+void backward(NeuralNetwork* nn, float* d_input, float* d_hidden, float* d_output, int* d_labels, int batch_size) {
+    // Initialize gradients to zero using CUDA kernel: æ‰€æœ‰æƒé‡çš„æ¢¯åº¦åˆå§‹åŒ–ä¸ºé›¶ã€‚ shapeä¸ºHIDDEN_SIZE * INPUT_SIZE
+    zero_grad_kernel << <(HIDDEN_SIZE * INPUT_SIZE + 256 - 1) / 256, 256 >> > (nn->grad_weights1, HIDDEN_SIZE * INPUT_SIZE);
+    CUDA_CHECK(cudaGetLastError());
+
+    zero_grad_kernel << <(OUTPUT_SIZE * HIDDEN_SIZE + 256 - 1) / 256, 256 >> > (nn->grad_weights2, OUTPUT_SIZE * HIDDEN_SIZE);
+    CUDA_CHECK(cudaGetLastError());
+
+    zero_grad_kernel << <(HIDDEN_SIZE + 256 - 1) / 256, 256 >> > (nn->grad_bias1, HIDDEN_SIZE);  // grad_bias1å‘é‡é•¿åº¦ä¸º4096 * 1
+    CUDA_CHECK(cudaGetLastError());
+
+    zero_grad_kernel <<< (OUTPUT_SIZE + 256 - 1) / 256, 256 >>> (nn->grad_bias2, OUTPUT_SIZE);  // grad_bias2å‘é‡é•¿åº¦ä¸º10 * 1
+    CUDA_CHECK(cudaGetLastError());
+
+    // 1ï¼ŒCompute gradients for output layerï¼šè®¡ç®—è¾“å‡ºå±‚æ¢¯åº¦
+    float* d_grad_output;
+    CUDA_CHECK(cudaMalloc(&d_grad_output, batch_size * OUTPUT_SIZE * sizeof(float))); // è¾“å‡ºæ¯ä¸ªæ ·æœ¬çš„æ¯ä¸ªåˆ†ç±»åå¯¼æ•°è®¡ç®—æ¢¯åº¦
+    // æ ¹æ®äº¤å‰ç†µæŸå¤±å’ŒSoftmaxçš„å¯¼æ•°å…¬å¼ï¼Œæ¢¯åº¦ä¸º output - one_hot(labels)ã€‚
+    compute_output_gradients_kernel <<< (batch_size + 255) / 256, 256 >>> (d_grad_output, d_output, d_labels, batch_size);
+    CUDA_CHECK(cudaGetLastError());
+
+    // 2, Update gradients for weights2 (W2.grad = grad_output.T @ hidden): æ›´æ–°æƒé‡æ¢¯åº¦ï¼Œä½¿ç”¨ matmul_at_b_kernel æ ¸å¿ƒå‡½æ•°æ›´æ–°ç¬¬äºŒå±‚æƒé‡çš„æ¢¯åº¦
+    // æ ¹æ®é“¾å¼æ³•åˆ™ï¼Œè¾“å‡ºå±‚æƒé‡æ¢¯åº¦åº”ä¸ºéšè—å±‚è¾“å‡ºçš„è½¬ç½®ä¸è¾“å‡ºæ¢¯åº¦çš„ä¹˜ç§¯ã€‚p*weight
+    dim3 block_size(32, 32);
+    dim3 grid_size((HIDDEN_SIZE + block_size.x - 1) / block_size.x, (OUTPUT_SIZE + block_size.y - 1) / block_size.y);
+    // nn->grad_weights2 = d_hidden @ d_grad_output
+    matmul_at_b_kernel <<< grid_size, block_size >>> (d_hidden, d_grad_output, nn->grad_weights2, batch_size, HIDDEN_SIZE, OUTPUT_SIZE);
+    CUDA_CHECK(cudaGetLastError());
+
+    // Update gradients for bias2å’Œweight2ï¼š æ›´æ–°äº†nn->grad_weights2å’Œnn->grad_bias2
+    // ç»“æœç´¯åŠ nn->grad_weights2 = sum(d_grad_output @ d_hidden)ï¼Œä½¿ç”¨ update_gradients_kernel æ ¸å¿ƒå‡½æ•°æ›´æ–°åç½®çš„æ¢¯åº¦ï¼ˆbias2ï¼‰
+    update_gradients_kernel <<< grid_size, block_size >>> (nn->grad_weights2, nn->grad_bias2, d_grad_output, d_hidden, batch_size, HIDDEN_SIZE, OUTPUT_SIZE);
+    CUDA_CHECK(cudaGetLastError());
+
+    // 3ï¼Œé“¾å¼æ³•åˆ™ä¼ æ’­åˆ°éšè—å±‚, æ±‚éšè—å±‚çš„æ¢¯åº¦ï¼š Compute dX2 (gradient of loss w.r.t. input of second layer)ï¼š è®¡ç®— dX2ï¼ˆæŸå¤±ç›¸å¯¹äºç¬¬äºŒå±‚è¾“å…¥çš„æ¢¯åº¦ï¼‰
+    float* d_dX2; // æŠŠç¬¬äºŒå±‚å½“è¾“å‡ºå±‚çš„æ•´ä¸ªæ¢¯åº¦ï¼Œd_dX2å³ä¸ºd ç¬¬äºŒå±‚çš„d_grad_output
+    CUDA_CHECK(cudaMalloc(&d_dX2, batch_size * HIDDEN_SIZE * sizeof(float)));
+    grid_size.x = (HIDDEN_SIZE + block_size.x - 1) / block_size.x;
+    grid_size.y = (batch_size + block_size.y - 1) / block_size.y;
+    // grad_output @ W2.Tï¼Œ å…¶ä¸­d_grad_outputä¸ºbatch_size * OUTPUT_SIZE çš„è¾“å‡ºå±‚æ¢¯åº¦p-1
+    matmul_a_bt_kernel << <grid_size, block_size >> > (d_grad_output, nn->weights2, d_dX2, batch_size, OUTPUT_SIZE, HIDDEN_SIZE);
+    CUDA_CHECK(cudaGetLastError());
+
+    //  Compute d_ReLU_out (element-wise multiplication with ReLU derivative)ï¼š
+    // ReLU å¯¼æ•°çš„é€å…ƒç´ ä¹˜æ³•å¾—åˆ°éšè—å±‚æ¿€æ´»å‡½æ•°å‰çš„æ•´ä½“CEæ¢¯åº¦å€¼
+    float* d_grad_hidden;
+    CUDA_CHECK(cudaMalloc(&d_grad_hidden, batch_size * HIDDEN_SIZE * sizeof(float)));
+    // è®¡ç®— ReLU çš„å¯¼æ•° d ReLu / d d_hiddençš„å€¼,d_grad_hiddenä¸º0,1çŸ©é˜µ
+    drelu_kernel << <(batch_size * HIDDEN_SIZE + 255) / 256, 256 >> > (d_hidden, d_grad_hidden, batch_size * HIDDEN_SIZE);
+    CUDA_CHECK(cudaGetLastError());
+    // d_dX2 = d_grad_hiddenä¸ dX2 é€å…ƒç´ ç›¸ä¹˜ï¼Œelement-wise
+    multiply_gradients_kernel << <(batch_size * HIDDEN_SIZE + 255) / 256, 256 >> > (d_dX2, d_grad_hidden, batch_size * HIDDEN_SIZE);
+    CUDA_CHECK(cudaGetLastError());
+
+    // 4, Update gradients for weights1 (W1.grad = d_ReLU_out.T @ input): æ›´æ–°ç¬¬ä¸€å±‚çš„æƒé‡å’Œåç½®çš„æ¢¯åº¦, å‚è€ƒç¬¬äºŒå±‚æ›´æ–°æ–¹æ³•ã€‚
+    grid_size.x = (INPUT_SIZE + block_size.x - 1) / block_size.x;
+    grid_size.y = (HIDDEN_SIZE + block_size.y - 1) / block_size.y;
+    matmul_at_b_kernel << <grid_size, block_size >> > (d_input, d_dX2, nn->grad_weights1, batch_size, INPUT_SIZE, HIDDEN_SIZE);
+    CUDA_CHECK(cudaGetLastError());
+
+    // Update gradients for bias1å’Œweight1ï¼šæ›´æ–°ç¬¬ä¸€å±‚æƒé‡å’Œåç½®çš„æ¢¯åº¦å€¼ï¼ˆstepsizeï¼‰
+    update_gradients_kernel << <grid_size, block_size >> > (nn->grad_weights1, nn->grad_bias1, d_dX2, d_input, batch_size, INPUT_SIZE, HIDDEN_SIZE);
+    CUDA_CHECK(cudaGetLastError());
+
+    // 5ï¼Œ Free allocated memoryé‡Šæ”¾
+    CUDA_CHECK(cudaFree(d_grad_output));
+    CUDA_CHECK(cudaFree(d_dX2));
+    CUDA_CHECK(cudaFree(d_grad_hidden));
+
+    // ç¡®ä¿æ‰€æœ‰ CUDA æ“ä½œå®Œæˆï¼Œé¿å…åœ¨ä¸»æœºä»£ç ä¸­å‡ºç°ä¸ä¸€è‡´çš„çŠ¶æ€, åœ¨ CUDA ç¼–ç¨‹ä¸­ç”¨äºåŒæ­¥è®¾å¤‡ï¼ˆGPUï¼‰å’Œä¸»æœºï¼ˆCPUï¼‰ä¹‹é—´çš„æ‰§è¡Œ
+    CUDA_CHECK(cudaDeviceSynchronize());
+}
+
 #endif
+
+
+// æ ¹æ®æ¢¯åº¦æ›´æ–°å“åº”æƒé‡å‚æ•°
+#ifndef update_weigtht
+#define update_weigtht
+// gradient descent stepï¼š é€šè¿‡æ¢¯åº¦ä¸‹é™å’Œå­¦ä¹ ç‡æ›´æ–°å‚æ•°ï¼Œæ¯ä¸ªå€¼å•ç‹¬æ›´æ–°
+__global__ void update_weights_kernel(float* weights, float* grad_weights, int size) {
+    int idx = blockIdx.x * blockDim.x + threadIdx.x;
+    if (idx < size) {
+        weights[idx] -= LEARNING_RATE * grad_weights[idx];
+    }
+}
+
+/*
+æ›´æ–°æƒé‡æ“ä½œï¼šå°†è®¡ç®—å¾—åˆ°çš„æ¢¯åº¦ç”¨äºæ›´æ–°æƒé‡å’Œåç½®ã€‚
+æ›´æ–°å…¬å¼ï¼šweights = weights - LEARNING_RATE * gradients
+*/
+void update_weights(NeuralNetwork* nn) {
+    int block_size = 256;
+    int grid_size;
+
+    // Update weights1
+    grid_size = (HIDDEN_SIZE * INPUT_SIZE + block_size - 1) / block_size;
+    update_weights_kernel << <grid_size, block_size >> > (nn->weights1, nn->grad_weights1, HIDDEN_SIZE * INPUT_SIZE);
+    CUDA_CHECK(cudaGetLastError());
+
+    // Update weights2
+    grid_size = (OUTPUT_SIZE * HIDDEN_SIZE + block_size - 1) / block_size;
+    update_weights_kernel << <grid_size, block_size >> > (nn->weights2, nn->grad_weights2, OUTPUT_SIZE * HIDDEN_SIZE);
+    CUDA_CHECK(cudaGetLastError());
+
+    // Update bias1
+    grid_size = (HIDDEN_SIZE + block_size - 1) / block_size;
+    update_weights_kernel << <grid_size, block_size >> > (nn->bias1, nn->grad_bias1, HIDDEN_SIZE);
+    CUDA_CHECK(cudaGetLastError());
+
+    // Update bias2
+    grid_size = (OUTPUT_SIZE + block_size - 1) / block_size;
+    update_weights_kernel << <grid_size, block_size >> > (nn->bias2, nn->grad_bias2, OUTPUT_SIZE);
+    CUDA_CHECK(cudaGetLastError());
+
+    CUDA_CHECK(cudaDeviceSynchronize());
+}
+#endif
+
+
+// è®­ç»ƒå’Œè¯„ä¼°
+#ifndef train_evaluate
+#define train_evaluate
+/* è¯„ä¼°å‡½æ•°evaluate_accuracyåˆ™æ˜¯åœ¨æµ‹è¯•é›†ä¸Šè®¡ç®—æ¨¡å‹çš„å‡†ç¡®ç‡ï¼Œåˆ†æ‰¹æ¬¡å¤„ç†æ•°æ®ï¼Œé¿å…æ˜¾å­˜ä¸è¶³
+åˆ†æ‰¹æ¬¡å¤„ç†æµ‹è¯•é›†ï¼Œç»Ÿè®¡é¢„æµ‹æ­£ç¡®çš„æ ·æœ¬æ¯”ä¾‹ï¼š
+å‰å‘ä¼ æ’­è®¡ç®—æµ‹è¯•æ ·æœ¬çš„è¾“å‡ºï¼Œå°†æµ‹è¯•é›†æŒ‰å°æ‰¹é‡åˆ†å‰²ï¼Œåˆ†æ‰¹æ¬¡è¯„ä¼°æ¯ä¸ªæ ·æœ¬çš„é¢„æµ‹å€¼ï¼Œ
+æ¯”è¾ƒæ¯ä¸ªæ ·æœ¬çš„é¢„æµ‹ç±»åˆ«å’ŒçœŸå®æ ‡ç­¾ï¼Œç»Ÿè®¡å‡†ç¡®ç‡ã€‚
+ Modify evaluate_accuracy to handle larger datasets by processing in batches: è¯„ä¼°å‡½æ•°
+ æ„ä¹‰ï¼šæµ‹è¯•å‡†ç¡®ç‡ç›´æ¥åæ˜ äº†æ¨¡å‹åœ¨æœªè§æ•°æ®ä¸Šçš„è¡¨ç°ï¼Œèƒ½å¤ŸéªŒè¯æ¨¡å‹çš„æ³›åŒ–èƒ½åŠ›ã€‚
+*/
+float evaluate_accuracy(NeuralNetwork* nn, float* d_X_test, int* d_y_test, float* d_hidden, float* d_output, int total_size) {
+    int num_batches = (total_size + BATCH_SIZE - 1) / BATCH_SIZE;
+    int total_correct = 0;
+    int total_processed = 0;
+
+    // è·‘num_batchesä¸ªæ‰¹æ¬¡
+    for (int batch = 0; batch < num_batches; batch++) {  // total_sizeæŒ‰BATCH_SIZEé•¿åº¦åˆ‡å‰²
+        int current_batch_size = (batch == num_batches - 1) ?
+            (total_size - batch * BATCH_SIZE) : BATCH_SIZE;
+
+        if (current_batch_size <= 0) break;
+
+        // è°ƒç”¨ forward() å‡½æ•°è®¡ç®—æ¨¡å‹åœ¨æµ‹è¯•é›†ä¸Šçš„è¾“å‡ºã€‚
+        forward(nn, &d_X_test[batch * BATCH_SIZE * INPUT_SIZE],
+            d_hidden, d_output, current_batch_size);
+
+        float* h_output = (float*)malloc(current_batch_size * OUTPUT_SIZE * sizeof(float));
+        int* h_y_test = (int*)malloc(current_batch_size * sizeof(int));
+
+        // å°† GPU ä¸Šçš„é¢„æµ‹ç»“æœå’Œæµ‹è¯•æ ‡ç­¾æ‹·è´å› CPU è¿›è¡Œå¯¹æ¯”
+        CUDA_CHECK(cudaMemcpy(h_output, d_output,
+            current_batch_size * OUTPUT_SIZE * sizeof(float), cudaMemcpyDeviceToHost));
+        CUDA_CHECK(cudaMemcpy(h_y_test, &d_y_test[batch * BATCH_SIZE],  // åªæ‹·è´æ•°æ®çš„ç¬¬batchä¸ªBATCH_SIZEé•¿åº¦çš„æ•°æ®
+            current_batch_size * sizeof(int), cudaMemcpyDeviceToHost));
+
+        for (int i = 0; i < current_batch_size; i++) {
+            int predicted = 0;
+            // å–æœ€å¤§æ¦‚ç‡å€¼
+            for (int j = 1; j < OUTPUT_SIZE; j++) {
+                if (h_output[i * OUTPUT_SIZE + j] > h_output[i * OUTPUT_SIZE + predicted]) {
+                    predicted = j;
+                }
+            }
+
+            // é€ä¸ªæ ·æœ¬å¯¹æ¯”é¢„æµ‹å€¼ä¸çœŸå®å€¼ï¼Œç´¯ç§¯è®¡ç®—æ­£ç¡®ç‡
+            if (predicted == h_y_test[i]) {
+                total_correct++;
+            }
+        }
+
+        total_processed += current_batch_size;
+        free(h_output);
+        free(h_y_test);
+    }
+
+    // è¾“å‡ºç™¾åˆ†æ¯”
+    return 100.0f * total_correct / total_processed;
+}
+
+/*
+* å‡½æ•° train() å®šä¹‰äº†ä¸€ä¸ªå®Œæ•´çš„è®­ç»ƒè¿‡ç¨‹ï¼ŒåŒ…æ‹¬æ•°æ®åŠ è½½ã€è®­ç»ƒè½®æ•°ï¼ˆepochï¼‰å¾ªç¯ã€å‰å‘ä¼ æ’­ã€åå‘ä¼ æ’­ã€æƒé‡æ›´æ–°ä»¥åŠæµ‹è¯•å‡†ç¡®ç‡çš„è¯„ä¼°:
+æŒ‰æ‰¹æ¬¡è¿›è¡Œå‰å‘ä¼ æ’­ã€æŸå¤±è®¡ç®—ã€åå‘ä¼ æ’­å’Œå‚æ•°æ›´æ–°
+æ¯100ä¸ªæ‰¹æ¬¡æˆ–é¦–ä¸ªæ‰¹æ¬¡åï¼Œéšæœºé€‰å–æµ‹è¯•é›†çš„ä¸€ä¸ªæ‰¹æ¬¡è®¡ç®—å‡†ç¡®ç‡ï¼š
+ä¸»è¦æµç¨‹ï¼š
+æ•°æ®åŠ è½½åˆ° GPU â†’ æ¢¯åº¦æ¸…é›¶ â†’ å‰å‘ä¼ æ’­ â†’ æŸå¤±è®¡ç®— â†’ åå‘ä¼ æ’­ â†’ æƒé‡æ›´æ–° â†’ æ€§èƒ½è¯„ä¼°ã€‚
+æ¯ä¸ª epoch éƒ½éå†å®Œæ•´è®­ç»ƒé›†ï¼Œåˆ†ä¸ºè‹¥å¹²å°æ‰¹é‡è®­ç»ƒã€‚
+
+å…³é”®ä¼˜åŒ–ï¼š
+ä½¿ç”¨ CUDA å¹¶è¡ŒåŒ–çŸ©é˜µè¿ç®—å’Œæ¿€æ´»æ“ä½œï¼ŒåŠ é€Ÿç¥ç»ç½‘ç»œçš„å‰å‘å’Œåå‘ä¼ æ’­ã€‚
+é€šè¿‡å°æ‰¹é‡è®­ç»ƒå¹³è¡¡å†…å­˜å ç”¨ä¸è®¡ç®—æ•ˆç‡ã€‚
+
+æ€§èƒ½ç›‘æ§ï¼š
+é€šè¿‡éšæœºæµ‹è¯•å°æ‰¹é‡å’Œå…¨é‡æµ‹è¯•å®æ—¶è¯„ä¼°æ¨¡å‹çš„å‡†ç¡®ç‡ã€‚
+*/ 
+void train(NeuralNetwork* nn, float* X_train, int* y_train, float* X_test, int* y_test) {
+    float* d_X_train, * d_X_test, * d_hidden, * d_output; // éšè—å±‚å’Œè¾“å‡ºé¢å¤–åˆ†é…å†…å­˜
+    int* d_y_train, * d_y_test;
+
+    // Allocate memory for training and test data
+    // ä½¿ç”¨ cudaMalloc ä¸ºè®­ç»ƒé›†ã€æµ‹è¯•é›†ã€éšè—å±‚è¾“å‡ºå’Œè¾“å‡ºå±‚åˆ†é… GPU å†…å­˜,åˆ†é…çš„å†…å­˜å¤§å°ä¸æ•°æ®è§„æ¨¡å’Œæ¨¡å‹ç»“æ„ç›¸å…³
+    CUDA_CHECK(cudaMalloc(&d_X_train, TRAIN_SIZE * INPUT_SIZE * sizeof(float)));
+    CUDA_CHECK(cudaMalloc(&d_X_test, TEST_SIZE * INPUT_SIZE * sizeof(float)));
+    CUDA_CHECK(cudaMalloc(&d_hidden, BATCH_SIZE * HIDDEN_SIZE * sizeof(float)));
+    CUDA_CHECK(cudaMalloc(&d_output, BATCH_SIZE * OUTPUT_SIZE * sizeof(float)));
+    CUDA_CHECK(cudaMalloc(&d_y_train, TRAIN_SIZE * sizeof(int)));
+    CUDA_CHECK(cudaMalloc(&d_y_test, TEST_SIZE * sizeof(int)));
+
+    // Copy data to GPU
+    // å®é™…ä½¿ç”¨ cudaMemcpy å°†ä¸»æœºï¼ˆCPUï¼‰ä¸Šçš„è®­ç»ƒæ•°æ®å’Œæ ‡ç­¾æ‹·è´åˆ°è®¾å¤‡ï¼ˆGPUï¼‰ä¸Šï¼Œä»¥ä¾¿å¹¶è¡Œå¤„ç†
+    CUDA_CHECK(cudaMemcpy(d_X_train, X_train, TRAIN_SIZE * INPUT_SIZE * sizeof(float), cudaMemcpyHostToDevice));
+    CUDA_CHECK(cudaMemcpy(d_X_test, X_test, TEST_SIZE * INPUT_SIZE * sizeof(float), cudaMemcpyHostToDevice));
+    CUDA_CHECK(cudaMemcpy(d_y_train, y_train, TRAIN_SIZE * sizeof(int), cudaMemcpyHostToDevice));
+    CUDA_CHECK(cudaMemcpy(d_y_test, y_test, TEST_SIZE * sizeof(int), cudaMemcpyHostToDevice));
+
+    int num_batches = TRAIN_SIZE / BATCH_SIZE;
+
+    for (int epoch = 0; epoch < EPOCHS; epoch++) {
+        float total_loss = 0.0f;
+
+        // Zero out gradients at the beginning of each epoch
+        // æ¢¯åº¦æ¸…é›¶ï¼šæ¯ä¸ª epoch çš„å¼€å§‹ä¼šæ¸…é™¤ä¸Šä¸€è½®ä¸­ç´¯ç§¯çš„æ¢¯åº¦ã€‚
+        zero_grad_kernel << <(HIDDEN_SIZE * INPUT_SIZE + 256 - 1) / 256, 256 >> > (nn->grad_weights1, HIDDEN_SIZE * INPUT_SIZE);
+        zero_grad_kernel << <(OUTPUT_SIZE * HIDDEN_SIZE + 256 - 1) / 256, 256 >> > (nn->grad_weights2, OUTPUT_SIZE * HIDDEN_SIZE);
+        zero_grad_kernel << <(HIDDEN_SIZE + 256 - 1) / 256, 256 >> > (nn->grad_bias1, HIDDEN_SIZE);
+        zero_grad_kernel << <(OUTPUT_SIZE + 256 - 1) / 256, 256 >> > (nn->grad_bias2, OUTPUT_SIZE);
+        CUDA_CHECK(cudaDeviceSynchronize());  // å®ŒæˆåŒæ­¥ï¼Œè¿™æ ·åšå¯ä»¥ç¡®ä¿æ¯æ¬¡å‚æ•°æ›´æ–°åªåŸºäºå½“å‰æ‰¹æ¬¡çš„æ¢¯åº¦å€¼
+
+        for (int batch = 0; batch < num_batches; batch++) {  // æ‰¹æ¬¡å¾ªç¯ï¼ˆMini-batch Trainingï¼‰
+            int start_idx = batch * BATCH_SIZE;
+
+            // d_X_trainä¸ºè®­ç»ƒæ•°æ®é›†ï¼Œè¾“å‡ºç»“æœå­˜å‚¨åœ¨ d_output ä¸­ï¼Œéšè—å±‚å­˜å‚¨åœ¨d_hiddenä¸­
+            forward(nn, &d_X_train[start_idx * INPUT_SIZE], d_hidden, d_output, BATCH_SIZE);
+
+            // å°† GPU ä¸Šçš„è¾“å‡ºç»“æœæ‹·è´åˆ°ä¸»æœºï¼ˆCPUï¼‰
+            float* h_output = (float*)malloc(BATCH_SIZE * OUTPUT_SIZE * sizeof(float));
+            CUDA_CHECK(cudaMemcpy(h_output, d_output, BATCH_SIZE * OUTPUT_SIZE * sizeof(float), cudaMemcpyDeviceToHost));
+
+            // è®¡ç®—è®¡ç®—å½“å‰æ‰¹æ¬¡çš„äº¤å‰ç†µæŸå¤±ï¼Œæ€»æŸå¤±ç´¯ç§¯åˆ° total_loss ä¸­
+            // æ³¨æ„è¿™é‡Œcpuè®¡ç®—çš„total_lossåªåšæ‰“å°è¾“å‡ºå¹¶æ²¡å…¶ä»–ä½œç”¨
+            float loss = cross_entropy_loss(h_output, &y_train[start_idx], BATCH_SIZE);
+            total_loss += loss;
+
+            free(h_output);  // é‡Šæ”¾æ‰ç”³è¯·çš„cpuå†…å­˜.
+
+            // è°ƒç”¨ backward() å‡½æ•°è®¡ç®—æ¢¯åº¦
+            backward(nn, &d_X_train[start_idx * INPUT_SIZE], d_hidden, d_output, &d_y_train[start_idx], BATCH_SIZE);
+            // è°ƒç”¨ update_weights() å‡½æ•°æ›´æ–°æƒé‡å’Œåç½®
+            update_weights(nn);
+
+            // éšæœºæµ‹è¯•æ ·æœ¬è¯„ä¼°:æ¯è®­ç»ƒ 100 ä¸ªå°æ‰¹é‡åï¼ŒéšæœºæŠ½å–æµ‹è¯•é›†ä¸­çš„ä¸€ä¸ªæ‰¹æ¬¡æ ·æœ¬è¯„ä¼°æ¨¡å‹å‡†ç¡®ç‡
+            if ((batch + 1) % 100 == 0 || (epoch == 0 && batch == 0)) {
+                // Use random batch from test set for accuracy reporting
+                int test_start_idx = rand() % (TEST_SIZE - BATCH_SIZE);  // æµ‹è¯•éšæœºå¼€å§‹ä½ç½®ï¼Œ - BATCH_SIZEä¿è¯ä¸è¶Šç•Œ
+                float test_accuracy = evaluate_accuracy(nn,
+                    &d_X_test[test_start_idx * INPUT_SIZE],  //d_X_testå¼€å§‹ä½ç½®ï¼šæ¯ä¸ªå…ƒç´ é•¿åº¦ä¸ºINPUT_SIZE
+                    &d_y_test[test_start_idx],  // d_y_testå¼€å§‹ä½ç½®ï¼Œæ¯ä¸ªå…ƒç´ é•¿åº¦ä¸º1
+                    d_hidden, d_output, BATCH_SIZE);
+
+                // å½“å‰çš„ epochã€æ‰¹æ¬¡ç´¢å¼•ã€æŸå¤±å€¼å’Œæµ‹è¯•å‡†ç¡®ç‡ä¼šè¢«æ‰“å°åˆ°ç»ˆç«¯ï¼Œæ–¹ä¾¿è§‚å¯Ÿæ¨¡å‹è®­ç»ƒåŠ¨æ€ã€‚
+                printf("Epoch %d/%d, Iter %d/%d, Loss: %.4f, Test Accuracy: %.2f%%\n",
+                    epoch + 1, EPOCHS, batch + 1, num_batches,
+                    total_loss / (batch + 1), test_accuracy);
+            }
+        }
+
+        // Evaluate on entire test set at end of epoch
+        // æ¯ä¸ª epoch å®Œæˆåï¼Œä½¿ç”¨å®Œæ•´çš„æµ‹è¯•é›†è¯„ä¼°æ¨¡å‹çš„æ•´ä½“æ€§èƒ½,  æµ‹è¯•é›†ä¸Šçš„å‡†ç¡®ç‡æ˜¯å¯¹æ¨¡å‹æœ€ç»ˆè¡¨ç°çš„è¡¡é‡
+        float test_accuracy = evaluate_accuracy(nn, d_X_test, d_y_test, d_hidden, d_output, TEST_SIZE);
+        printf("Epoch %d/%d completed, Loss: %.4f, Test Accuracy: %.2f%%\n",
+            epoch + 1, EPOCHS, total_loss / num_batches, test_accuracy);
+    }
+
+    // Free GPU memory
+    CUDA_CHECK(cudaFree(d_X_train));
+    CUDA_CHECK(cudaFree(d_X_test));
+    CUDA_CHECK(cudaFree(d_hidden));
+    CUDA_CHECK(cudaFree(d_output));
+    CUDA_CHECK(cudaFree(d_y_train));
+    CUDA_CHECK(cudaFree(d_y_test));
+}
+#endif
+
+
+int main() {
+    // srand(time(NULL));: åˆå§‹åŒ–éšæœºæ•°ç”Ÿæˆå™¨ï¼Œä½¿ç”¨å½“å‰æ—¶é—´ä½œä¸ºç§å­ã€‚è¿™ç¡®ä¿æ¯æ¬¡è¿è¡Œç¨‹åºæ—¶ç”Ÿæˆçš„éšæœºæ•°åºåˆ—ä¸åŒã€‚
+    srand(time(NULL));
+
+    NeuralNetwork nn;
+    initialize_neural_network(&nn);
+
+    /*åŠ¨æ€å†…å­˜åˆ†é…: ä¸ºè®­ç»ƒæ•°æ®å’Œæµ‹è¯•æ•°æ®åˆ†é…å†…å­˜ã€‚
+    X_train: å­˜å‚¨è®­ç»ƒæ ·æœ¬çš„ç‰¹å¾ï¼ˆè¾“å…¥ï¼‰ã€‚
+    y_train : å­˜å‚¨è®­ç»ƒæ ·æœ¬çš„æ ‡ç­¾ï¼ˆè¾“å‡ºï¼‰ã€‚
+    X_test : å­˜å‚¨æµ‹è¯•æ ·æœ¬çš„ç‰¹å¾ã€‚
+    y_test : å­˜å‚¨æµ‹è¯•æ ·æœ¬çš„æ ‡ç­¾ã€‚*/
+    float* X_train = (float*)malloc(TRAIN_SIZE * INPUT_SIZE * sizeof(float));
+    int* y_train = (int*)malloc(TRAIN_SIZE * sizeof(int));
+    float* X_test = (float*)malloc(TEST_SIZE * INPUT_SIZE * sizeof(float));
+    int* y_test = (int*)malloc(TEST_SIZE * sizeof(int));
+
+    // åˆ†åˆ«è¯»å–æ•°æ®å’Œæ ‡ç­¾
+    load_data("D://AI//mycuda//CudaRuntime1//mnist_data//mnist_data//X_train.bin", X_train, TRAIN_SIZE * INPUT_SIZE);
+    load_labels("D://AI//mycuda//CudaRuntime1//mnist_data//mnist_data//y_train.bin", y_train, TRAIN_SIZE);
+    load_data("D://AI//mycuda//CudaRuntime1//mnist_data//mnist_data//X_test.bin", X_test, TEST_SIZE * INPUT_SIZE);
+    load_labels("D://AI//mycuda//CudaRuntime1//mnist_data//mnist_data//y_test.bin", y_test, TEST_SIZE);
+
+    // print first image in the terminal
+    // å°†ç¬¬ä¸€å¼ å›¾åƒä»¥å­—ç¬¦å½¢å¼æ‰“å°åˆ°ç»ˆç«¯
+    for (int i = 0; i < 28; i++) {
+        for (int j = 0; j < 28; j++) {
+            if (X_train[0 * INPUT_SIZE + i * 28 + j] > 0.0f) {
+                printf("X");
+            }
+            else {
+                printf(" ");
+            }
+        }
+        printf("\n");
+    }
+
+    printf("First 10 training labels: ");
+    for (int i = 0; i < 10; i++) {
+        printf("%d ", y_train[i]);
+    }
+    printf("\n");
+
+    // Start timingï¼ŒCLOCK_MONOTONIC ç”¨äºè·å–ç¨‹åºè¿è¡Œçš„æ—¶é—´é—´éš”ï¼Œç¡®ä¿è®¡ç®—çš„æ—¶é—´ä¸å—ç³»ç»Ÿæ—¶é—´å˜åŒ–çš„å½±å“
+    //struct timespec start, end;
+    //clock_gettime(CLOCK_MONOTONIC, &start);
+    time_t start, end;;
+    time(&start);
+
+    // è°ƒç”¨ train å‡½æ•°è¿›è¡Œç¥ç»ç½‘ç»œçš„è®­ç»ƒï¼Œä¼ å…¥è®­ç»ƒæ•°æ®å’Œæµ‹è¯•æ•°æ®
+    train(&nn, X_train, y_train, X_test, y_test);
+
+    // End timing
+    // clock_gettime(CLOCK_MONOTONIC, &end);
+    time(&end);
+
+    // Calculate duration in seconds with milliseconds
+    double training_time = end - start;
+
+    printf("\nTotal training time: %.2f sec\n", training_time);
+
+    // é‡Šæ”¾æ‰€æœ‰å†…å­˜
+    CUDA_CHECK(cudaFree(nn.weights1));
+    CUDA_CHECK(cudaFree(nn.weights2));
+    CUDA_CHECK(cudaFree(nn.bias1));
+    CUDA_CHECK(cudaFree(nn.bias2));
+    CUDA_CHECK(cudaFree(nn.grad_weights1));
+    CUDA_CHECK(cudaFree(nn.grad_weights2));
+    CUDA_CHECK(cudaFree(nn.grad_bias1));
+    CUDA_CHECK(cudaFree(nn.grad_bias2));
+    free(X_train);
+    free(y_train);
+    free(X_test);
+    free(y_test);
+
+    // é”™è¯¯æ£€æŸ¥: æ£€æŸ¥æ˜¯å¦æœ‰ CUDA é”™è¯¯ï¼Œå¦‚æœæœ‰ï¼Œåˆ™è¾“å‡ºé”™è¯¯ä¿¡æ¯å¹¶è¿”å› 1 è¡¨ç¤ºç¨‹åºå¤±è´¥
+    cudaError_t err = cudaGetLastError();
+    if (err != cudaSuccess) {
+        fprintf(stderr, "CUDA error: %s\n", cudaGetErrorString(err));
+        return 1;
+    }
+
+    return 0;
+}
